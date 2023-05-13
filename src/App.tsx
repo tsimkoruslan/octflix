@@ -7,7 +7,7 @@ function App() {
   return (
     <Routes >
         <Route path={'/'} element={<MainLayout/>}>
-            <Route index element={<Navigate to={'/'}/>}/>
+            <Route index element={<Navigate to={'movies'}/>}/>
             <Route path={'movies'} element={<Movies/>}/>
             <Route path={'genres'} element={<Genres/>}/>
         </Route>

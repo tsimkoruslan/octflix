@@ -22,9 +22,11 @@ const Movies: FC = () => {
     }, [dispatch, query]);
 
     return (
+
         <div className={css.Movies}>
-            {
-                movies && movies.results.map((movie) => <Movie key={movie.id} movie={movie}/>)
+            {!movies? <div>Loading ... </div>
+                :
+                movies.results.map((movie) => <Movie key={movie.id} movie={movie}/>)
             }
             <Paginator/>
 

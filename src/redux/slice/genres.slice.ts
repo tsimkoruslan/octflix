@@ -11,7 +11,7 @@ interface IState {
 }
 
 const initialState: IState = {
-    genres: undefined,
+    genres: null,
     error: null
 }
 
