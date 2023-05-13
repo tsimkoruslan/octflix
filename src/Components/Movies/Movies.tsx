@@ -1,6 +1,10 @@
 import React, {FC, useEffect} from 'react';
+
 import {useAppDispatch, useAppSelector} from "../../hooks";
 import {moviesActions} from "../../redux";
+
+import css from './movies.module.css'
+import {Movie} from "../Movie/Movie";
 
 
 const Movies: FC = () => {
@@ -12,8 +16,8 @@ const Movies: FC = () => {
     }, [dispatch]);
 
     return (
-        <div>
-            {movies && movies.results.map((film, index) => <div key={index}>{film.title}</div>)}
+        <div className={css.Movies}>
+            {movies && movies.results.map((movie) => <Movie key={movie.id} movie={movie}/>)}
         </div>
     );
 };

@@ -1,0 +1,7 @@
+.Menu {
+    display: flex;
+    position: absolute;
+    float: bottom;
+    bottom: 0;
+    margin-left: 100px;
+}

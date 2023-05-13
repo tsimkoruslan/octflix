@@ -2,7 +2,7 @@ import React, {FC} from 'react';
 
 
 import css from './avatar.module.css'
-import avatar from '../../assets/images/avatar.jpeg'
+import avatar from '../../../assets/images/avatar.jpeg'
 
 const AvatarUser: FC = () => {
     return (

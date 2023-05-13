@@ -1,10 +1,12 @@
 import React, {FC} from 'react';
+
 import {Switcher} from "./Switcher";
-import {AvatarUser} from "../AvatarUser";
+import {AvatarUser} from "./AvatarUser";
+import css from './header.module.css'
 
 const Header: FC = () => {
     return (
-        <div>
+        <div className={css.Header}>
             <Switcher/>
             <AvatarUser/>
         </div>
@@ -14,4 +16,3 @@ const Header: FC = () => {
 export {
     Header
 }
-    ;
