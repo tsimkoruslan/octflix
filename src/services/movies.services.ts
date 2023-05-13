@@ -5,7 +5,7 @@ import {urls} from "../constans";
 
 
 const moviesServices = {
-    getBaseMovies : ():IRes<IMovies> => axiosService.get(urls.basePage)
+    getMovies : (page:number= 1):IRes<IMovies> => axiosService.get(urls.basePage, {params:{page}})
 }
 
 

@@ -7,18 +7,20 @@ import {moviesServices} from "../../services";
 interface IState {
     movies: IMovies
     error: string
+    page: number
 }
 
 const initialState: IState = {
     movies: null,
     error: null,
+    page: null,
 }
 
-const getMovies = createAsyncThunk<IMovies, void>(
+const getMovies = createAsyncThunk<IMovies, number>(
     'moviesSlice/getMovies',
-    async (_, {rejectWithValue}) => {
+    async (page, {rejectWithValue}) => {
         try {
-            const {data} = await moviesServices.getBaseMovies()
+            const {data} = await moviesServices.getMovies(page)
             return data
         } catch (e) {
             const err = e as AxiosError
@@ -35,6 +37,7 @@ const slice = createSlice({
             builder
                 .addCase(getMovies.fulfilled, (state, action) => {
                     state.movies = action.payload
+                    state.page = action.payload.page
                 })
 
                 .addMatcher(isFulfilled, state => {
