@@ -1,26 +1,25 @@
 import {createAsyncThunk, createSlice, isFulfilled, isRejectedWithValue} from "@reduxjs/toolkit";
 import {AxiosError} from "axios";
 
-import {IMovies} from "../../interfaces";
-import {moviesService} from "../../services";
+import {IGenre} from "../../interfaces/IGenre";
+import {genreService} from "../../services";
+
 
 interface IState {
-    movies: IMovies
+    genres: IGenre
     error: string
-    page: number
 }
 
 const initialState: IState = {
-    movies: null,
-    error: null,
-    page: null,
+    genres: undefined,
+    error: null
 }
 
-const getMovies = createAsyncThunk<IMovies, number>(
-    'moviesSlice/getMovies',
-    async (page, {rejectWithValue}) => {
+const getGenres = createAsyncThunk<IGenre, void>(
+    'genresSlice/getGenres',
+    async (_, {rejectWithValue}) => {
         try {
-            const {data} = await moviesService.getMovies(page)
+            const {data} = await genreService.getGenre()
             return data
         } catch (e) {
             const err = e as AxiosError
@@ -30,34 +29,32 @@ const getMovies = createAsyncThunk<IMovies, number>(
 )
 
 const slice = createSlice({
-        name: 'moviesSlice',
+        name: 'genresSlice',
         initialState,
         reducers: {},
         extraReducers: builder => {
             builder
-                .addCase(getMovies.fulfilled, (state, action) => {
-                    state.movies = action.payload
-                    state.page = action.payload.page
+                .addCase(getGenres.fulfilled, (state, action) => {
+                     state.genres = action.payload
                 })
-
                 .addMatcher(isFulfilled, state => {
                     state.error = null
                 } )
                 .addMatcher(isRejectedWithValue(), (state, action) => {
                     state.error = action.payload as any
                 })
-        },
+        }
     }
 )
 
-const {actions, reducer: moviesReducer} = slice;
+const {actions, reducer: genresReducer} = slice;
 
-const moviesActions = {
+const genreActions = {
     ...actions,
-    getMovies
+    getGenres
 }
 
 export {
-    moviesReducer,
-    moviesActions
+    genreActions,
+    genresReducer
 }

@@ -7,7 +7,6 @@ import {useAppSelector} from "../../hooks";
 
 
 const Paginator: FC = () => {
-    const {page}=useAppSelector(state => state.moviesReducer)
 
     const [query, setQuery] = useSearchParams()
     const prev = () => {

@@ -1,2 +1,3 @@
 export * from './axios.service'
-export * from './movies.services'
+export * from './movies.service'
+export * from './genre.service'

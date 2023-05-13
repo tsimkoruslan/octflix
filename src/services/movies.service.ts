@@ -4,11 +4,11 @@ import {IMovies} from "../interfaces";
 import {urls} from "../constans";
 
 
-const moviesServices = {
+const moviesService = {
     getMovies : (page:number= 1):IRes<IMovies> => axiosService.get(urls.basePage, {params:{page}})
 }
 
 
 export {
-    moviesServices
+    moviesService
 }
