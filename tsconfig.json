@@ -16,6 +16,5 @@
   },
   "typeAcquisition": {
     "enable": true
-  },
-  "include": ["./index.d.tsx"]
+  }
 }
