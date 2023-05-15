@@ -1,18 +1,26 @@
 import React from 'react';
-import {MainLayout} from "./layouts";
 import {Navigate, Route, Routes} from "react-router-dom";
-import {Genres, Movies} from "./Components";
+
+import {MainLayout} from "./layouts";
+import {GenresList, MoviesList, SearchMoviesList} from "./Components";
+import {MovieInfo} from "./Components";
+import {WelcomePage} from "./pages/WelcomePage";
 
 function App() {
-  return (
-    <Routes >
-        <Route path={'/'} element={<MainLayout/>}>
-            <Route index element={<Navigate to={'movies'}/>}/>
-            <Route path={'movies'} element={<Movies/>}/>
-            <Route path={'genres'} element={<Genres/>}/>
-        </Route>
-    </Routes>
-  );
+    return (
+        <Routes>
+            <Route path={'/'} element={<MainLayout/>}>
+
+                <Route index element={<Navigate to={'welcome'}/>}/>
+
+                <Route path={'welcome'} element={<WelcomePage/>}/>
+                <Route path={'movies'} element={<MoviesList/>}/>
+                <Route path={'info'} element={<MovieInfo/>}/>
+                <Route path={'genres'} element={<GenresList/>}/>
+                <Route path={'search'} element={<SearchMoviesList/>}/>
+            </Route>
+        </Routes>
+    );
 }
 
 export default App;

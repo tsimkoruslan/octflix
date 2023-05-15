@@ -1,2 +1,2 @@
 export * from './Menu'
-export * from '../Genres'
+export * from '../GenresList'

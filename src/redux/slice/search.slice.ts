@@ -1,28 +1,24 @@
 import {createAsyncThunk, createSlice, isFulfilled, isRejectedWithValue} from "@reduxjs/toolkit";
 import {AxiosError} from "axios";
+import {ISearch} from "../../interfaces";
+import {searchService} from "../../services";
 
-import {IMovies} from "../../interfaces";
-import {moviesService} from "../../services";
 
 interface IState {
-    movies: IMovies
+    movies: ISearch
     error: string
-    page: number
-    img: string
 }
 
 const initialState: IState = {
     movies: null,
-    error: null,
-    page: 1,
-    img: null
+    error: null
 }
 
-const getMovies = createAsyncThunk<IMovies, number>(
-    'moviesSlice/getMovies',
-    async (page, {rejectWithValue}) => {
+const search = createAsyncThunk<ISearch ,string >(
+    'searchSlice/search',
+    async (title, {rejectWithValue}) => {
         try {
-            const {data} = await moviesService.getMovies(page)
+            const {data} = await searchService.searchMovie(title)
             return data
         } catch (e) {
             const err = e as AxiosError
@@ -31,37 +27,33 @@ const getMovies = createAsyncThunk<IMovies, number>(
     }
 )
 
-
 const slice = createSlice({
-        name: 'moviesSlice',
+        name: 'searchSlice',
         initialState,
         reducers: {},
         extraReducers: builder => {
             builder
-
-                .addCase(getMovies.fulfilled, (state, action) => {
+                .addCase(search.fulfilled, (state, action) => {
                     state.movies = action.payload
-                    state.page = action.payload.page
                 })
-
                 .addMatcher(isFulfilled, state => {
                     state.error = null
-                })
+                } )
                 .addMatcher(isRejectedWithValue(), (state, action) => {
                     state.error = action.payload as any
                 })
-        },
+        }
     }
 )
 
-const {actions, reducer: moviesReducer} = slice;
+const {actions, reducer: searchReducer} = slice;
 
-const moviesActions = {
+const searchActions = {
     ...actions,
-    getMovies
+    search
 }
 
 export {
-    moviesReducer,
-    moviesActions
+    searchActions,
+    searchReducer
 }

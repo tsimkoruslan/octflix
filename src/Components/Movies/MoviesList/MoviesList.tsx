@@ -1,16 +1,16 @@
 import React, {FC, useEffect} from 'react';
 import {useSearchParams} from "react-router-dom";
 
-import {useAppDispatch, useAppSelector} from "../../hooks";
-import {moviesActions} from "../../redux";
-import css from './movies.module.css'
-import {Movie} from "../Movie/Movie";
+import {useAppDispatch, useAppSelector} from "../../../hooks";
+import {moviesActions} from "../../../redux";
+import {MovieListCard} from "../MovieListCard";
 import {Paginator} from "../Paginator";
+import css from './movies.list.module.css'
 
 
-const Movies: FC = () => {
+const MoviesList: FC = () => {
     const dispatch = useAppDispatch();
-    const [ query , serQuery] = useSearchParams()
+    const [query , serQuery] = useSearchParams()
     const {movies} = useAppSelector(state => state.moviesReducer);
 
     useEffect(()=>{
@@ -26,7 +26,7 @@ const Movies: FC = () => {
         <div className={css.Movies}>
             {!movies? <div>Loading ... </div>
                 :
-                movies.results.map((movie) => <Movie key={movie.id} movie={movie}/>)
+                movies.results.map((movie) => <MovieListCard key={movie.id} movie={movie}/>)
             }
             <Paginator/>
 
@@ -35,5 +35,5 @@ const Movies: FC = () => {
 };
 
 export {
-    Movies
+    MoviesList
 };

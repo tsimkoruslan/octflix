@@ -1,7 +1,5 @@
 .Header {
-    display: inline-block;
     height: 100vh;
-    background: cornflowerblue;
-    position: absolute;
+    position: fixed;
     left: 0;
 }

@@ -1,14 +1,15 @@
 import React, {FC} from 'react';
+import css from './homePage.module.css'
 
-import {Header, Menu, Search} from "../../Components";
+import {Header, Menu} from "../../Components";
+import {WelcomePage} from "../WelcomePage";
 
 
 const HomePage: FC = () => {
     return (
-        <div>
-            <Header/>
-            <Search/>
-            <Menu/>
+        <div >
+            <div><Header/></div>
+            <div className={css.Menu}><Menu/></div>
         </div>
 
     );

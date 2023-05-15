@@ -2,9 +2,9 @@ import React, {useEffect} from 'react';
 
 import {useAppDispatch, useAppSelector} from "../../hooks";
 import {genreActions} from "../../redux";
-import {log} from "util";
 
-const Genres = () => {
+
+const GenresList = () => {
     const {genres} = useAppSelector(state => state.genresReducer);
     const dispatch = useAppDispatch();
 
@@ -17,12 +17,12 @@ const Genres = () => {
         <div>
             {!genres? <div>Loading ... </div>
                     :
-                 genres.genres.map(genre => <div>{genre.name}{genre.id}</div>)
+                 genres.genres.map(genre => <div key={genre.id}>{genre.name}{genre.id}</div>)
             }
         </div>
     );
 };
 
 export {
-    Genres
+    GenresList
 };

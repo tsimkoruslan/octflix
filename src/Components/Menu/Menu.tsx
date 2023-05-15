@@ -7,8 +7,9 @@ import css from './menu.module.css'
 const Menu: FC = () => {
     return (
         <div className={css.Menu}>
-            <Link to={'movies'}> All films </Link>
-            <Link to={'genres'}> Genres </Link>
+            <Link className={css.Normalize} to={'movies'}> All films </Link>
+            <Link className={css.Normalize} to={'genres'}> Genres </Link>
+            <Link className={css.Normalize} to={'search'}> Search </Link>
         </div>
     );
 };

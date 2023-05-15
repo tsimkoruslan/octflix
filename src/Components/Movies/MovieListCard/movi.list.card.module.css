@@ -1,0 +1,40 @@
+
+h3, p {
+    margin: 0;
+    padding: 0;
+
+}
+
+.Normalize {
+    text-decoration: none;
+    color: black;
+}
+
+.PlacingCard {
+    width: 400px;
+    height: 300px;
+    margin: 5px;
+    padding: 5px;
+    box-sizing: border-box;
+    background: #d2d8e7;
+
+}
+
+.Placing {
+    display: flex;
+}
+.PlacingInfo {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-left: 10px;
+}
+
+.Poster {
+    height: 280px;
+}
+.Title {
+    text-align: center;
+    margin-top: 15px;
+    margin-bottom: 10px;
+}

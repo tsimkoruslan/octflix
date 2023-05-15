@@ -1,15 +1,16 @@
 import React, {FC} from 'react';
 import {Outlet} from "react-router-dom";
 
-import {Movies} from "../Components";
 import {HomePage} from "../pages";
+import css from './main.module.css'
 
 
 const MainLayout : FC = () => {
     return (
-        <div>
-            <HomePage/>
-            {/*вікно привітання*/}
+        <div className={css.Main}>
+            <div>
+                <HomePage/>
+            </div>
             <div>
                 <Outlet/>
             </div>
