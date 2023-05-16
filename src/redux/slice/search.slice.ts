@@ -14,26 +14,12 @@ const initialState: IState = {
     movies: null,
     error: null
 }
-//
-// const search = createAsyncThunk<IMovies ,string >(
-//     'searchSlice/search',
-//     async (title, {rejectWithValue}) => {
-//         try {
-//             const {data} = await searchService.searchMovie(title)
-//             return data
-//         } catch (e) {
-//             const err = e as AxiosError
-//             return rejectWithValue(err.response.data)
-//         }
-//     }
-// )
 
 const search = createAsyncThunk<IMovies, [string,string]>(
     'searchSlice/paginator',
     async ([title, page], {rejectWithValue}) => {
         try {
-            const {data} = await searchService.searchMovie2(title, page)
-            console.log(data)
+            const {data} = await searchService.searchMovie(title, page)
             return data
         } catch (e) {
             const err = e as AxiosError

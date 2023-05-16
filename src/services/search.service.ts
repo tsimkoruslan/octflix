@@ -4,11 +4,8 @@ import {urls} from "../constans";
 import {IMovies} from "../interfaces";
 
 const searchService = {
-    searchMovie : (title:string):IRes<IMovies> =>
-        axiosService.get(`${urls.search}${title}`),
-    // searchPaginator : (page:string):IRes<IMovies> => axiosService.get(`${searchReducer()}`, page)
-    searchMovie2 : (title:string, page:string):IRes<IMovies> =>
-        axiosService.get(`${urls.search}${title}&${page}`),
+    searchMovie : (title:string, page:string):IRes<IMovies> =>
+        axiosService.get(`${urls.search}${title}&`,{params: {page}}),
 }
 export {
     searchService

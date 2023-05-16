@@ -17,8 +17,6 @@ const SearchMoviesList: FC = () => {
     },[])
 
 
-
-
     return (
         <div>
             <div><SearchForm/></div>
