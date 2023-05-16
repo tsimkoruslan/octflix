@@ -1,7 +1,7 @@
 import {createAsyncThunk, createSlice, isFulfilled, isRejectedWithValue} from "@reduxjs/toolkit";
 import {AxiosError} from "axios";
 
-import {IGenre} from "../../interfaces/IGenre";
+import {IGenre} from "../../interfaces";
 import {genreService} from "../../services";
 
 

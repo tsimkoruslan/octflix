@@ -2,9 +2,6 @@ import React, {FC} from 'react';
 import {useSearchParams} from "react-router-dom";
 
 import css from './paginator.module.css'
-import {queries} from "@testing-library/react";
-import {useAppSelector} from "../../../hooks";
-
 
 const Paginator: FC = () => {
 

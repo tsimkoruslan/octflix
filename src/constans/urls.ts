@@ -3,7 +3,7 @@ const posterURL = 'https://image.tmdb.org/t/p/w200/'
 const urls = {
     basePage: '/discover/movie',
     genre: '/genre/list',
-    search: '/search/keyword?query='
+    search: '/search/movie?query=',
 }
 
 export {
