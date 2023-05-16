@@ -1,0 +1,19 @@
+
+
+.Card {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin: 10px auto;
+}
+.CardInfo {
+    color: white;
+    padding: 10px 15px;
+    background-color: #2b0d0d;
+    border-radius: 10%;
+    margin: 5px;
+    display: inline-block;
+    cursor: pointer;
+
+}

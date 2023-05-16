@@ -6,3 +6,12 @@
     justify-content: right;
     align-items: center;
 }
+
+.SearchBar {
+    position: fixed;
+    top: 0;
+
+}
+.SearchBarGenre{
+
+}

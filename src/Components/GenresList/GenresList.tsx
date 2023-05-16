@@ -1,23 +1,24 @@
 import React, {useEffect} from 'react';
 
 import {useAppDispatch, useAppSelector} from "../../hooks";
-import {genreActions} from "../../redux";
+import {GenreCard} from "../GenreCard";
+import css from './genre.list.module.css'
+import {moviesActions} from "../../redux";
 
 
 const GenresList = () => {
-    const {genres} = useAppSelector(state => state.genresReducer);
+    const {genres} = useAppSelector(state => state.moviesReducer);
     const dispatch = useAppDispatch();
 
     useEffect(() => {
-        dispatch(genreActions.getGenres())
+        dispatch(moviesActions.getGenres())
     }, [dispatch])
 
-
     return (
-        <div>
+        <div className={css.Position}>
             {!genres? <div>Loading ... </div>
                     :
-                 genres.genres.map(genre => <div key={genre.id}>{genre.name}{genre.id}</div>)
+                 genres.genres.map(genre =><GenreCard key={genre.id} genre={genre}/> )
             }
         </div>
     );

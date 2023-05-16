@@ -1,10 +1,10 @@
-interface IGenres {
+export interface InfoGenre {
     id: number
     name: string
 }
 export interface IGenre {
     genres: [
-        IGenres
+        InfoGenre
     ]
 
 }

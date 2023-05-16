@@ -1,8 +1,5 @@
-
-h3, p {
-    margin: 0;
-    padding: 0;
-
+*{
+    box-sizing: border-box;
 }
 
 .Normalize {
@@ -10,31 +7,25 @@ h3, p {
     color: black;
 }
 
-.PlacingCard {
+.Main {
     width: 400px;
-    height: 300px;
-    margin: 5px;
-    padding: 5px;
-    box-sizing: border-box;
-    background: #d2d8e7;
-
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
-.Placing {
+.AllInfo {
     display: flex;
+    margin: 1rem;
+    background-color: #505050;
+    overflow: hidden;
+    align-items: center;
+
 }
-.PlacingInfo {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    margin-left: 10px;
+.Info {
+    color: snow;
 }
 
 .Poster {
-    height: 280px;
-}
-.Title {
-    text-align: center;
-    margin-top: 15px;
-    margin-bottom: 10px;
+    height: 100%;
 }

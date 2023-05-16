@@ -1,9 +1,9 @@
-import React, {FC, useEffect} from 'react';
+import React, {FC} from 'react';
 import {SubmitHandler, useForm} from "react-hook-form";
-import {useLocation, useSearchParams} from "react-router-dom";
+import {useSearchParams} from "react-router-dom";
 
-import {useAppDispatch} from "../../../hooks";
-import  {searchActions} from "../../../redux";
+import {useAppDispatch} from "../../hooks";
+import {moviesActions} from "../../redux";
 
 interface ITitle {
     title: string
@@ -11,16 +11,14 @@ interface ITitle {
 }
 
 const SearchForm: FC = () => {
-     const [query, _] = useSearchParams()
-
-    const {register, handleSubmit} = useForm()
+    const [ ,setQuery] = useSearchParams()
+    const {register, handleSubmit, reset} = useForm()
     const dispatch = useAppDispatch();
 
-    useEffect(() => {
-        dispatch(searchActions.search([query.get('title'), query.get('page')]))
-    }, [query, dispatch])
     const search: SubmitHandler<ITitle> = ({title}) => {
-        dispatch(searchActions.search([title, query.get('page')]))
+        setQuery(prev => ({...prev, title:title}))
+        dispatch(moviesActions.search(title))
+        reset()
     }
 
     return (
@@ -28,6 +26,7 @@ const SearchForm: FC = () => {
             <div>
                 <form onSubmit={handleSubmit(search)}>
                     <input placeholder={'search movie'} {...register('title')} />
+                    <button>search</button>
                 </form>
             </div>
         </div>

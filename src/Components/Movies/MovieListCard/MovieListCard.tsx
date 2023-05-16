@@ -16,13 +16,13 @@ const MovieListCard: FC<IProps> = ({movie}) => {
 
 
     return (
-        <div className={css.PlacingCard}>
+        <div className={css.Main}>
             <Link className={css.Normalize} to={'/info'} state={{...movie}}>
-                <div className={`${css.Normalize} ${css.Placing}`}>
+                <div className={`${css.AllInfo}`}>
                     <div>
                         <img className={css.Poster} src={`${posterURL}/${poster_path}`} alt={title}/>
                     </div>
-                    <div className={css.PlacingInfo}>
+                    <div className={css.Info}>
                         <h3 className={css.Title}>{title}</h3>
                         <p>release {release_date}</p>
                         <p>{vote_average} ★</p>
