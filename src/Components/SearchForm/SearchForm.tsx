@@ -4,7 +4,6 @@ import {useSearchParams} from "react-router-dom";
 
 import {useAppDispatch} from "../../hooks";
 import {moviesActions} from "../../redux";
-import css from './search.form.module.css'
 
 interface ITitle {
     title: string

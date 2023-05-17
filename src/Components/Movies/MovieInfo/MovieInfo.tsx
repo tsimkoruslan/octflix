@@ -11,7 +11,7 @@ const MovieInfo: FC = () => {
 
     const location = useLocation()
     const {
-        id, title, poster_path,
+        title, poster_path,
         release_date, vote_average, backdrop_path,
         genre_ids, overview
     } = location.state as IResults
