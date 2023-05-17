@@ -18,12 +18,21 @@ const GenresList = () => {
         dispatch(moviesActions.getMovieForGenre(arrIdGenres.toString()))
     },[dispatch, arrIdGenres])
 
+    const reset = () => {
+      dispatch(moviesActions.pushIdGenres([]))
+    }
+
     return (
-        <div className={css.Position}>
-            {!genres? <div>Loading ... </div>
-                    :
-                 genres.genres.map(genre =><GenreCard key={genre.id} genre={genre}/> )
+
+        <div className={css.ButtonPosition}>
+            <div className={css.Reset}><button type="button" className="btn btn-secondary btn-sm" onClick={reset}>reset</button></div>
+            <div className={css.Flex}>
+                {!genres ? <div>Loading ... </div>
+                :
+                genres.genres.map(genre => <GenreCard key={genre.id} genre={genre}/>)
             }
+            </div>
+
         </div>
     );
 };

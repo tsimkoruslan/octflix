@@ -24,10 +24,13 @@ const SearchForm: FC = () => {
     return (
         <div>
             <div>
-                <form onSubmit={handleSubmit(search)}>
-                    <input placeholder={'search movie'} {...register('title')} />
-                    <button>search</button>
+                <form className="input-group mb-3" onSubmit={handleSubmit(search)}>
+                    <input type="text" className="form-control"
+                           placeholder={'Search movie'} aria-label="Recipient's username"
+                           aria-describedby="button-addon2"{...register('title')} />
+                    <button  className="btn btn-outline-secondary" id="button-addon2">search</button>
                 </form>
+
             </div>
         </div>
     );

@@ -12,18 +12,21 @@ interface IProps {
 const GenreCard: FC<IProps> = ({genre}) => {
     const {name, id} = genre
 
+
+
     const {arrIdGenres} = useAppSelector(state => state.moviesReducer)
     const dispatch = useAppDispatch()
 
     const push =  () => {
         const updatedGenres: string[] = [...arrIdGenres, id.toString()];
         dispatch(moviesActions.pushIdGenres(updatedGenres));
+
     }
 
 
     return (
-        <div className={css.Card}>
-            <button onClick={push} className={css.CardInfo}>{name}</button>
+        <div className={css.Margin}>
+            <button type="button" className="btn btn-primary btn-sm" onClick={push} >{name}</button>
         </div>
     );
 };

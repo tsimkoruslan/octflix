@@ -22,7 +22,7 @@ const MoviesList: FC = () => {
     return (
         <div className={css.Movies}>
                 <div className={css.SearchBar} ><SearchForm/></div>
-                <div className={css.SearchBarGenre} ><GenresList/></div>
+                <div><GenresList/></div>
             {!movies? <div>Loading ... </div>
                 :
                 movies.results.map((movie) =>( <MovieListCard key={movie.id} movie={movie}/>))

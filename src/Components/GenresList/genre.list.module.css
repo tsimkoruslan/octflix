@@ -1,4 +1,16 @@
-.Position {
+
+.ButtonPosition {
+    display: flex;
+    top: 0;
+    margin-bottom: 50px;
+}
+.Flex {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
+}
+.Reset {
+    position: fixed;
+    bottom: 50px;
+    margin-left: 120px;
 }

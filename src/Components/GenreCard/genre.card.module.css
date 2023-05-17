@@ -1,16 +1,4 @@
 
-
-.Card {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin: 10px auto;
-}
-.CardInfo {
-    color: white;
-    padding: 10px 15px;
-    background-color: #505050;
-    margin: 5px;
-    cursor: pointer;
-
+.Margin {
+    margin: 2px;
 }

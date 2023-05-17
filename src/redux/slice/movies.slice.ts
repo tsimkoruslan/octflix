@@ -6,7 +6,7 @@ import {moviesService} from "../../services";
 
 interface IState {
     genres: IGenre
-    arrIdGenres: []
+    arrIdGenres: string[]
     movies: IMovies
     error: string
     img: string
@@ -79,10 +79,9 @@ const slice = createSlice({
         name: 'moviesSlice',
         initialState,
         reducers: {
-            pushIdGenres : (state, action) => {
-                state.arrIdGenres = action.payload
-                }
-        },
+            pushIdGenres: (state, action) => {
+               state.arrIdGenres = action.payload
+        }},
         extraReducers: builder => {
             builder
                 .addCase(getMovieForGenre.fulfilled, (state, action) => {
