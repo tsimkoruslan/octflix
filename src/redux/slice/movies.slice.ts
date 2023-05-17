@@ -3,8 +3,6 @@ import {AxiosError} from "axios";
 
 import {IGenre, IMovies} from "../../interfaces";
 import {moviesService} from "../../services";
-import {useAppDispatch, useAppSelector} from "../../hooks";
-import {useEffect} from "react";
 
 interface IState {
     genres: IGenre

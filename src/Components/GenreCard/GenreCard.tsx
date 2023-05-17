@@ -1,4 +1,4 @@
-import React, {FC, useEffect} from 'react';
+import React, {FC} from 'react';
 
 import {InfoGenre} from "../../interfaces";
 import css from './genre.card.module.css'
