@@ -4,6 +4,7 @@ const urls = {
     basePage: '/discover/movie',
     genre: '/genre/list',
     search: '/search/movie?query=',
+    genreBuId: '?with_genres='
 }
 
 export {

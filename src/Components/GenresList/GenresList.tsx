@@ -7,12 +7,16 @@ import {moviesActions} from "../../redux";
 
 
 const GenresList = () => {
-    const {genres} = useAppSelector(state => state.moviesReducer);
+    const {genres, arrIdGenres} = useAppSelector(state => state.moviesReducer);
     const dispatch = useAppDispatch();
 
     useEffect(() => {
         dispatch(moviesActions.getGenres())
     }, [dispatch])
+
+    useEffect(()=>{
+        dispatch(moviesActions.getMovieForGenre(arrIdGenres.toString()))
+    },[dispatch, arrIdGenres])
 
     return (
         <div className={css.Position}>

@@ -11,16 +11,13 @@ import {GenresList} from "../../GenresList";
 
 const MoviesList: FC = () => {
     const dispatch = useAppDispatch();
-    const [query , setQuery] = useSearchParams()
+    const [query , ] = useSearchParams()
     const {movies} = useAppSelector(state => state.moviesReducer);
 
-    useEffect(()=>{
-       setQuery(prev => ({...prev, page:'1'}))
-   },[])
-
-    useEffect(() => {
+    useEffect(() =>  {
         dispatch(moviesActions.getMovies(+query.get('page')))
     }, [dispatch, query]);
+
 
     return (
         <div className={css.Movies}>

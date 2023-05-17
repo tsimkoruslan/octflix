@@ -3,6 +3,8 @@ import {AxiosError} from "axios";
 
 import {IGenre, IMovies} from "../../interfaces";
 import {moviesService} from "../../services";
+import {useAppDispatch, useAppSelector} from "../../hooks";
+import {useEffect} from "react";
 
 interface IState {
     genres: IGenre
@@ -10,6 +12,7 @@ interface IState {
     movies: IMovies
     error: string
     img: string
+
 }
 
 const initialState: IState = {
@@ -17,7 +20,8 @@ const initialState: IState = {
     movies: null,
     error: null,
     img: null,
-    arrIdGenres: []
+    arrIdGenres: [],
+
 }
 
 const getMovies = createAsyncThunk<IMovies, number>(
@@ -47,10 +51,23 @@ const getGenres = createAsyncThunk<IGenre, void>(
 )
 
 const search = createAsyncThunk<IMovies, string>(
-    'searchSlice/paginator',
+    'searchSlice/search',
     async (title, {rejectWithValue}) => {
         try {
             const {data} = await moviesService.searchMovie(title)
+            return data
+        } catch (e) {
+            const err = e as AxiosError
+            return rejectWithValue(err.response.data)
+        }
+    }
+)
+
+const getMovieForGenre = createAsyncThunk<IMovies, string>(
+    'genresSlice/getMovieForGenre',
+    async (id, {rejectWithValue}) => {
+        try {
+            const {data} = await moviesService.getGenreById(id.toString())
             return data
         } catch (e) {
             const err = e as AxiosError
@@ -70,6 +87,9 @@ const slice = createSlice({
         },
         extraReducers: builder => {
             builder
+                .addCase(getMovieForGenre.fulfilled, (state, action) => {
+                    state.movies = action.payload
+                })
                 .addCase(getMovies.fulfilled, (state, action) => {
                     state.movies = action.payload
                 })
@@ -94,9 +114,10 @@ const {actions, reducer: moviesReducer} = slice;
 
 const moviesActions = {
     ...actions,
-    getMovies,
     search,
-    getGenres
+    getGenres,
+    getMovies,
+    getMovieForGenre
 }
 
 export {
