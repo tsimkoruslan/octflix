@@ -1,17 +1,21 @@
-.Movies {
+.Main {
     padding: 50px;
     display: flex;
     flex-wrap: wrap;
     box-sizing: border-box;
-    justify-content: right;
-    align-items: center;
+    justify-content: center;
 }
 
 .SearchBar {
+    margin-top: 10px;
+    margin-left: 77%;
     position: fixed;
     top: 0;
 
 }
-.SearchBarGenre{
+.GenresList{
+    margin-top: 20px;
+}
+.Movie {
 
 }

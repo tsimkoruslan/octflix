@@ -5,21 +5,6 @@
 .Normalize {
     text-decoration: none;
     color: black;
-}
-
-.Main {
-    width: 400px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
-.AllInfo {
-    display: flex;
-    margin: 1rem;
-    background-color: #505050;
-    overflow: hidden;
-    align-items: center;
 
 }
 .Info {
@@ -27,5 +12,12 @@
 }
 
 .Poster {
-    height: 100%;
+    margin: 5px;
+    border-radius: 5px;
+}
+.Box {
+    box-sizing: border-box;
+}
+.Position {
+    position: static;
 }

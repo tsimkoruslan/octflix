@@ -1,0 +1,27 @@
+.Parent{
+    display: flex;
+    flex-wrap: wrap;
+}
+.Img{
+    height: 500px;
+}
+.MainInfo{
+    width: 50%;
+    display: flex;
+    margin: 10px;
+    flex-direction: column;
+    box-sizing: border-box;
+}
+.Background {
+    width: 90%;
+    margin-left: 50px;
+}
+.Overview {
+
+}
+.Positions {
+    margin: 10px 20px 0 70px ;
+    border: white solid 5px;
+    position: relative;
+    bottom: 150px;
+}

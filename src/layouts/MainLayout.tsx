@@ -8,7 +8,7 @@ import css from './main.module.css'
 const MainLayout : FC = () => {
     return (
         <div className={css.Main}>
-            <div>
+            <div className={css.HomePage}>
                 <HomePage/>
             </div>
             <div>

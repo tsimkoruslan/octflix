@@ -10,7 +10,7 @@ interface IState {
     movies: IMovies
     error: string
     img: string
-
+    // disabledGenre: boolean
 }
 
 const initialState: IState = {
@@ -19,6 +19,7 @@ const initialState: IState = {
     error: null,
     img: null,
     arrIdGenres: [],
+    // disabledGenre: false
 
 }
 
@@ -81,7 +82,12 @@ const slice = createSlice({
         reducers: {
             pushIdGenres: (state, action) => {
                state.arrIdGenres = action.payload
-        }},
+        },
+
+            // disabledGenre : (state, action) => {
+            //     state.disabledGenre = action.payload
+            // }
+        },
         extraReducers: builder => {
             builder
                 .addCase(getMovieForGenre.fulfilled, (state, action) => {

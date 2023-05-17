@@ -11,22 +11,26 @@ import {GenresList} from "../../GenresList";
 
 const MoviesList: FC = () => {
     const dispatch = useAppDispatch();
-    const [query , ] = useSearchParams()
+    const [query,] = useSearchParams()
     const {movies} = useAppSelector(state => state.moviesReducer);
 
-    useEffect(() =>  {
+    useEffect(() => {
         dispatch(moviesActions.getMovies(+query.get('page')))
     }, [dispatch, query]);
 
 
     return (
-        <div className={css.Movies}>
-                <div className={css.SearchBar} ><SearchForm/></div>
-                <div><GenresList/></div>
-            {!movies? <div>Loading ... </div>
-                :
-                movies.results.map((movie) =>( <MovieListCard key={movie.id} movie={movie}/>))
-            }
+        <div className={css.Main}>
+            <div className={css.SearchBar}><SearchForm/></div>
+            <div className={css.GenresList}><GenresList/></div>
+            <div className={`row row-cols-1 row-cols-md-5 g-4 ${css.Movie}`}>
+                    {
+                        !movies ? <div>Loading ... </div>
+                    :
+                    movies.results.map((movie) => (<MovieListCard key={movie.id} movie={movie}/>))
+                    }
+
+            </div>
             <div><Paginator/></div>
         </div>
     );

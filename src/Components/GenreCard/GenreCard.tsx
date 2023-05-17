@@ -19,14 +19,13 @@ const GenreCard: FC<IProps> = ({genre}) => {
 
     const push =  () => {
         const updatedGenres: string[] = [...arrIdGenres, id.toString()];
-        dispatch(moviesActions.pushIdGenres(updatedGenres));
-
+        dispatch(moviesActions.getMovieForGenre(updatedGenres.toString()))
     }
 
 
     return (
         <div className={css.Margin}>
-            <button type="button" className="btn btn-primary btn-sm" onClick={push} >{name}</button>
+            <button type="button" className="btn btn-primary btn-sm" onClick={push}>{name}</button>
         </div>
     );
 };
