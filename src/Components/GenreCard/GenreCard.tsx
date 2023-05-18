@@ -1,10 +1,10 @@
-import React, {FC, useState} from 'react';
+import React, {FC} from 'react';
 
 import {InfoGenre} from "../../interfaces";
 import css from './genre.card.module.css'
 import {useAppDispatch, useAppSelector} from "../../hooks";
 import {moviesActions} from "../../redux";
-import {log} from "util";
+
 
 interface IProps {
     genre: InfoGenre
