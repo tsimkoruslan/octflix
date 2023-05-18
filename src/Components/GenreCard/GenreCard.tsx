@@ -12,13 +12,12 @@ interface IProps {
 const GenreCard: FC<IProps> = ({genre}) => {
     const {name, id} = genre
 
-
-
     const {arrIdGenres} = useAppSelector(state => state.moviesReducer)
     const dispatch = useAppDispatch()
-
     const push =  () => {
-        const updatedGenres: string[] = [...arrIdGenres, id.toString()];
+        const updatedGenres = [...arrIdGenres, id.toString()];
+
+        dispatch(moviesActions.pushIdGenres(updatedGenres))
         dispatch(moviesActions.getMovieForGenre(updatedGenres.toString()))
     }
 

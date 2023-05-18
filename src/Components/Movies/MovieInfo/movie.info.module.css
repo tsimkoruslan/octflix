@@ -14,14 +14,25 @@
 }
 .Background {
     width: 90%;
-    margin-left: 50px;
+    margin-left: 5%;
 }
 .Overview {
 
 }
 .Positions {
-    margin: 10px 20px 0 70px ;
+    margin: 10px 20px 0 100px ;
     border: white solid 5px;
     position: relative;
     bottom: 150px;
+}
+.Genres {
+    display: inline-block;
+    background-color: #2d75dd;
+    margin: 5px;
+    width: 100px;
+    text-align: center;
+    border-radius: 10px;
+    padding: 5px;
+    border: solid #304ebc;
+    color: white;
 }

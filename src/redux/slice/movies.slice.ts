@@ -5,12 +5,12 @@ import {IGenre, IMovies} from "../../interfaces";
 import {moviesService} from "../../services";
 
 interface IState {
-    genres: IGenre
-    arrIdGenres: string[]
-    movies: IMovies
-    error: string
-    img: string
-    // disabledGenre: boolean
+    genres: IGenre,
+    arrIdGenres: string[],
+    movies: IMovies,
+    error: string,
+    img: string,
+
 }
 
 const initialState: IState = {
@@ -19,7 +19,6 @@ const initialState: IState = {
     error: null,
     img: null,
     arrIdGenres: [],
-    // disabledGenre: false
 
 }
 
@@ -82,11 +81,8 @@ const slice = createSlice({
         reducers: {
             pushIdGenres: (state, action) => {
                state.arrIdGenres = action.payload
-        },
+        }
 
-            // disabledGenre : (state, action) => {
-            //     state.disabledGenre = action.payload
-            // }
         },
         extraReducers: builder => {
             builder
@@ -96,12 +92,14 @@ const slice = createSlice({
                 .addCase(getMovies.fulfilled, (state, action) => {
                     state.movies = action.payload
                 })
+
                 .addCase(search.fulfilled, (state, action) => {
                     state.movies = action.payload
                 })
                 .addCase(getGenres.fulfilled, (state, action) => {
                     state.genres = action.payload
                 })
+
 
                 .addMatcher(isFulfilled, state => {
                     state.error = null

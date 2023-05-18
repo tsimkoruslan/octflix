@@ -5,7 +5,8 @@ const urls = {
     basePage: '/discover/movie',
     genre: '/genre/list',
     search: '/search/movie?query=',
-    genreBuId: '?with_genres='
+    genreBuId: '?with_genres=',
+    infoById: '/movie/'
 }
 
 export {
