@@ -23,7 +23,7 @@ const MoviesList: FC = () => {
         <div className={css.Main}>
             <div className={css.SearchBar}><SearchForm/></div>
             <div className={css.GenresList}><GenresList/></div>
-            <div className={`row row-cols-1 row-cols-md-5 g-4 ${css.Movie}`}>
+            <div className={`row row-cols-1 row-cols-md-5 g-4`}>
                     {
                         !movies ? <div>Loading ... </div>
                     :

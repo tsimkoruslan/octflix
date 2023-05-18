@@ -22,9 +22,20 @@
 .Positions {
     margin: 10px 20px 0 10% ;
     border: white solid 5px;
-    position: relative;
+    position: sticky;
     bottom: 150px;
 }
 .Genres {
  margin: 5px;
+}
+.MainCard {
+    padding: 50px;
+    display: flex;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+    justify-content: center;
+
+}
+.Stars {
+    position: static;
 }

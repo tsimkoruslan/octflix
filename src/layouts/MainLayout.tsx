@@ -12,7 +12,7 @@ const MainLayout : FC = () => {
                 <Header/>
             </div>
             <div>
-                <Outlet/>
+                    <Outlet/>
             </div>
         </div>
     );

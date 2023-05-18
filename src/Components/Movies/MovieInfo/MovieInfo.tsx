@@ -1,18 +1,18 @@
-import React, {Component, FC, useState} from 'react';
+import React, {Component, FC} from 'react';
 import {Link, useLocation} from "react-router-dom";
+import StarRatings from 'react-star-ratings';
 
 import {backgroundImage, posterURL} from "../../../constans";
 import css from './movie.info.module.css'
-import StarRatings from 'react-star-ratings';
-import {useAppSelector} from "../../../hooks";
+import {useAppDispatch, useAppSelector} from "../../../hooks";
 import {IResults} from "../../../interfaces";
 import emptyPoster from "../../../assets/images/empty/Programmer - Blank Poster.jpeg";
 import emptyBackground from "../../../assets/images/empty/background_photo.jpeg";
+import {moviesActions} from "../../../redux";
 
 const MovieInfo: FC = () => {
 
     const location = useLocation()
-
     const {
         genre_ids,
         title,
@@ -21,11 +21,16 @@ const MovieInfo: FC = () => {
         backdrop_path,
         overview,
         release_date
-    } = location.state as IResults
+    } = location.state as IResults;
 
-    const {genres} = useAppSelector(state => state.moviesReducer)
+    const {genres} = useAppSelector(state => state.moviesReducer);
+    const filteredGenres = genres?.genres.filter(genre => genre_ids.includes(genre.id));
 
-    const filteredGenres = genres?.genres.filter(genre => genre_ids.includes(genre.id))
+    const dispatch = useAppDispatch()
+
+    const searchGenre = (id) => {
+        dispatch(moviesActions.getMovieForGenre(id))
+    }
 
 
     class Bar extends Component {
@@ -55,20 +60,31 @@ const MovieInfo: FC = () => {
                 <div className={css.MainInfo}>
                     <h1>{title}</h1>
                     <p>{release_date}</p>
-                    <div>{stars.render()}</div>
+                    <div className={css.Stars}>{stars.render()}</div>
                     <p className={css.Overview}>{overview}</p>
                     <div>
                         {
-                        !genres ?
-                            <Link to={'/movies'}>
-                                <button className={`btn btn-outline-secondary`}> Loading genre ...</button>
-                            </Link> :
+                            !genres ?
+                                <Link to={'/movies'}>
+                                    <button className={`btn btn-outline-secondary`}> Loading genre ...</button>
+                                </Link> :
 
-                            filteredGenres.map(i => <button className={`btn btn-outline-secondary ${css.Genres}`}
-                                                            key={i.id}>{i.name}</button>)
-                    }</div>
+                                filteredGenres.map(i =>
+                                    <Link to={'/genre'} >
+                                        <button onClick={
+                                            () => {
+                                                searchGenre(i.id)
+                                            }
+                                        }
+                                                className={`btn btn-outline-secondary ${css.Genres}`
+                                                }
+                                                key={i.id}>{i.name}</button>
+                                    </Link>)
+                        }
+                    </div>
                 </div>
             </div>
+
 
         </>
     );

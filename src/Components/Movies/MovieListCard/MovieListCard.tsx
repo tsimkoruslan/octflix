@@ -25,7 +25,7 @@ const MovieListCard: FC<IProps> = ({movie}) => {
                 </div>
                 <div className="card-body">
                     <h5 className="card-title">{title}</h5>
-                    <p className="card-text">release {release_date} / {vote_average} ★</p>
+                    <p className="card-text">Release {release_date?.slice(0,4)} / Rating {vote_average} ★</p>
                 </div>
             </div>
         </Link>
