@@ -6,9 +6,9 @@
 }
 .UserName {
     font-size: 20px;
+    margin-right: 10px;
 }
 .Flex {
     display: flex;
     align-items: center;
-
 }
