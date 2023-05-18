@@ -17,9 +17,11 @@ const MovieListCard: FC<IProps> = ({movie}) => {
 
     const img = poster_path ? `${posterURL}${poster_path}` : `${empty}`
 
+
+
     return (
         <Link className={`${css.Normalize}`} to={'/info'} state={{...movie}}>
-            <div className={`card h-100 ${css.Position}`}>
+            <div className={`card h-100 ${css.Position} ${css.Card}`}>
                 <div>
                     <img className="card-img-top" src={img} alt={title}/>
                 </div>

@@ -4,6 +4,7 @@ import {useAppDispatch, useAppSelector} from "../../hooks";
 import {moviesActions} from "../../redux";
 import {MovieListCard} from "../Movies";
 import css from './genre.movie.module.css'
+import {Paginator} from "../Paginator";
 
 const GenreMovie = () => {
 
@@ -24,6 +25,7 @@ const GenreMovie = () => {
                         arr.map(movie => <MovieListCard key={movie.id} movie={movie}/>)
                     }
                 </div>
+                <Paginator/>
             </div>
     );
 };

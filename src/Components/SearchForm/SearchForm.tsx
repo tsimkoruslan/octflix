@@ -5,6 +5,8 @@ import {useSearchParams} from "react-router-dom";
 import {useAppDispatch} from "../../hooks";
 import {moviesActions} from "../../redux";
 
+import css from './search.form.module.css'
+
 interface ITitle {
     title: string
     page: string
@@ -24,7 +26,7 @@ const SearchForm: FC = () => {
     return (
         <div>
             <form className="input-group mb-3" onSubmit={handleSubmit(search)}>
-                <input type="text" className="form-control"
+                <input type="text" className={`form-control ${css.Bg}`}
                        placeholder={'Search movie'} aria-label="Recipient's username"
                        aria-describedby="button-addon2"{...register('title')} />
                 <button className="btn btn-outline-secondary" id="button-addon2">search</button>
