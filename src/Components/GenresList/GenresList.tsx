@@ -19,7 +19,8 @@ const GenresList = () => {
     },[dispatch, arrIdGenres])
 
     const reset = () => {
-      dispatch(moviesActions.pushIdGenres([]))
+      dispatch(moviesActions.pushIdGenres([]));
+
     }
 
     return (

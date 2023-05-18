@@ -18,8 +18,7 @@ const initialState: IState = {
     movies: null,
     error: null,
     img: null,
-    arrIdGenres: [],
-
+    arrIdGenres: []
 }
 
 const getMovies = createAsyncThunk<IMovies, number>(
@@ -81,7 +80,7 @@ const slice = createSlice({
         reducers: {
             pushIdGenres: (state, action) => {
                state.arrIdGenres = action.payload
-        }
+        },
 
         },
         extraReducers: builder => {
