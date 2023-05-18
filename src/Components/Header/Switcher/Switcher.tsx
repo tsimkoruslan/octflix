@@ -1,8 +1,10 @@
-import React from 'react';
+import React, {FC} from 'react';
 
-const Switcher = () => {
+import css from './switcher.module.css';
+
+const Switcher: FC = () => {
     return (
-            <div>
+            <div className={css.Switcher}>
                 sw
             </div>
     );

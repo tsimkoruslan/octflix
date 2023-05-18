@@ -1,11 +1,13 @@
-import React, {Component, FC, useEffect} from 'react';
-import {useLocation} from "react-router-dom";
+import React, {Component, FC, useState} from 'react';
+import {Link, useLocation} from "react-router-dom";
 
 import {backgroundImage, posterURL} from "../../../constans";
 import css from './movie.info.module.css'
 import StarRatings from 'react-star-ratings';
 import {useAppSelector} from "../../../hooks";
 import {IResults} from "../../../interfaces";
+import emptyPoster from "../../../assets/images/empty/Programmer - Blank Poster.jpeg";
+import emptyBackground from "../../../assets/images/empty/background_photo.jpeg";
 
 const MovieInfo: FC = () => {
 
@@ -23,7 +25,7 @@ const MovieInfo: FC = () => {
 
     const {genres} = useAppSelector(state => state.moviesReducer)
 
-    const filteredGenres = genres.genres.filter(genre => genre_ids.includes(genre.id));
+    const filteredGenres = genres?.genres.filter(genre => genre_ids.includes(genre.id))
 
 
     class Bar extends Component {
@@ -39,20 +41,31 @@ const MovieInfo: FC = () => {
     }
 
     const stars = new Bar(StarRatings)
+
+    const imgPosterEmpty = poster_path ? `${posterURL}${poster_path}` : `${emptyPoster}`
+    const imgBackgroundEmpty = backdrop_path ? `${backgroundImage}${backdrop_path}` : `${emptyBackground}`
+
     return (
         <>
             <div className={css.Parent}>
-                <img className={css.Background} src={`${backgroundImage}${backdrop_path}`} alt=""/>
+                <img className={css.Background} src={imgBackgroundEmpty} alt=""/>
                 <div className={css.Positions}>
-                    <img className={css.Img} src={`${posterURL}${poster_path}`} alt={title}/>
+                    <img className={css.Img} src={imgPosterEmpty} alt={title}/>
                 </div>
                 <div className={css.MainInfo}>
                     <h1>{title}</h1>
                     <p>{release_date}</p>
                     <div>{stars.render()}</div>
                     <p className={css.Overview}>{overview}</p>
-                    <div>{
-                        filteredGenres.map(i => <span className={css.Genres} key={i.id}>{i.name}</span>)
+                    <div>
+                        {
+                        !genres ?
+                            <Link to={'/movies'}>
+                                <button className={`btn btn-outline-secondary`}> Loading genre ...</button>
+                            </Link> :
+
+                            filteredGenres.map(i => <button className={`btn btn-outline-secondary ${css.Genres}`}
+                                                            key={i.id}>{i.name}</button>)
                     }</div>
                 </div>
             </div>

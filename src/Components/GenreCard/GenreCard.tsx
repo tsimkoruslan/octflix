@@ -23,8 +23,8 @@ const GenreCard: FC<IProps> = ({genre}) => {
 
 
     return (
-        <div className={css.Margin}>
-            <button type="button" className="btn btn-outline-secondary " onClick={push}>{name}</button>
+        <div>
+            <button type="button" className={`btn btn-outline-secondary ${css.Button} `} onClick={push}>{name}</button>
         </div>
     );
 };

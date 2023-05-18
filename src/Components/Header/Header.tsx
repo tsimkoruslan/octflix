@@ -4,15 +4,15 @@ import {Switcher} from "./Switcher";
 import {AvatarUser} from "./AvatarUser";
 import css from './header.module.css'
 import {Logo} from "./Logo";
-import {AllFilms} from "../AllFilms";
+import {HomeLink} from "./HomeLink";
 
 const Header: FC = () => {
     return (
         <div className={`${css.Header}`}>
             <Logo/>
-            <AvatarUser/>
             <Switcher/>
-            <AllFilms/>
+            <AvatarUser/>
+            <HomeLink/>
         </div>
     );
 };

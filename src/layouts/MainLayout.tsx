@@ -1,15 +1,15 @@
 import React, {FC} from 'react';
 import {Outlet} from "react-router-dom";
 
-import {HomePage} from "../pages";
 import css from './main.module.css'
+import {Header} from "../Components";
 
 
 const MainLayout : FC = () => {
     return (
         <div className={css.Main}>
             <div className={css.HomePage}>
-                <HomePage/>
+                <Header/>
             </div>
             <div>
                 <Outlet/>

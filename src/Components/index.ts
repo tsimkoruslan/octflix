@@ -1,6 +1,6 @@
 export * from './Header'
 export * from './SearchForm'
-export * from './AllFilms'
+export * from './Header/HomeLink'
 export * from './Movies/MoviesList'
 export * from './Movies'
 export * from './GenreCard'

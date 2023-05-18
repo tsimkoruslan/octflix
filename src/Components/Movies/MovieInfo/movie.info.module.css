@@ -20,19 +20,11 @@
 
 }
 .Positions {
-    margin: 10px 20px 0 100px ;
+    margin: 10px 20px 0 10% ;
     border: white solid 5px;
     position: relative;
     bottom: 150px;
 }
 .Genres {
-    background-color: #2d75dd;
-    margin: 5px;
-    width: 100px;
-    text-align: center;
-    border-radius: 10px;
-    padding: 5px;
-    border: solid #304ebc;
-    color: white;
-
+ margin: 5px;
 }
