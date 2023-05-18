@@ -15,8 +15,8 @@ const Paginator: FC = () => {
 
     return (
         <div className={`btn-group ${css.Paginator}`} role="group" aria-label="Basic example"  >
-            <button type="button" className="btn btn-primary" disabled={+query.get('page') <= 1} onClick={prev}>prev</button>
-            <button type="button" className="btn btn-primary" disabled={+query.get('page') >= 500} onClick={next}>next</button>
+            <button type="button" className="btn btn-outline-secondary " disabled={+query.get('page') <= 1} onClick={prev}>prev</button>
+            <button type="button" className="btn btn-outline-secondary " disabled={+query.get('page') >= 500} onClick={next}>next</button>
         </div>
     );
 };

@@ -26,15 +26,15 @@ const GenresList = () => {
 
 
         <div className={css.ButtonPosition}>
-            <div className={css.Reset}>
-                <button type="button" className="btn btn-secondary btn-sm" onClick={reset} >reset genre</button>
-            </div>
             <div className={css.Flex} >
                 {!genres ?
                     <div>Loading ... </div>
                 :
                 genres.genres.map(genre => <GenreCard key={genre.id} genre={genre}/>)
             }
+            </div>
+            <div>
+                <button type="button" className={`btn btn-outline-secondary ${css.Reset}`} onClick={reset} >Reset Genre</button>
             </div>
 
         </div>

@@ -4,7 +4,7 @@ import {Switcher} from "./Switcher";
 import {AvatarUser} from "./AvatarUser";
 import css from './header.module.css'
 import {Logo} from "./Logo";
-import {Menu} from "../Menu";
+import {AllFilms} from "../AllFilms";
 
 const Header: FC = () => {
     return (
@@ -12,7 +12,7 @@ const Header: FC = () => {
             <Logo/>
             <AvatarUser/>
             <Switcher/>
-            <Menu/>
+            <AllFilms/>
         </div>
     );
 };

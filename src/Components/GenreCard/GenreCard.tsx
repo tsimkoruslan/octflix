@@ -24,7 +24,7 @@ const GenreCard: FC<IProps> = ({genre}) => {
 
     return (
         <div className={css.Margin}>
-            <button type="button" className="btn btn-primary btn-sm" onClick={push}>{name}</button>
+            <button type="button" className="btn btn-outline-secondary " onClick={push}>{name}</button>
         </div>
     );
 };

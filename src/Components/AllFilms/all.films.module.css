@@ -1,0 +1,10 @@
+
+.Normalize {
+    text-decoration: none;
+    color: black;
+}
+.Position {
+    position: absolute;
+    top: 10px;
+    right: 40vh;
+}

@@ -2,16 +2,16 @@
 .ButtonPosition {
     display: flex;
     top: 0;
-    margin-bottom: 50px;
+    margin-bottom: 10px;
 }
 .Flex {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     position: static;
+
 }
 .Reset {
-    position: fixed;
-    bottom: 50px;
-    margin-left: 120px;
+    margin: 2px;
+    border: solid #555cc7 1px;
 }

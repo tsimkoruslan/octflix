@@ -26,7 +26,6 @@
     bottom: 150px;
 }
 .Genres {
-    display: inline-block;
     background-color: #2d75dd;
     margin: 5px;
     width: 100px;
@@ -35,4 +34,5 @@
     padding: 5px;
     border: solid #304ebc;
     color: white;
+
 }

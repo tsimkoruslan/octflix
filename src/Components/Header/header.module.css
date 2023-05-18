@@ -3,5 +3,6 @@
     width: 100%;
     position: fixed;
     background-color: #ffffff;
-    border-bottom: #0d6efd solid 2px;
+    border-bottom: #7d7d7d solid 2px;
+    align-items: center;
 }
