@@ -1,33 +1,41 @@
-.Parent{
+.Parent {
     display: flex;
     flex-wrap: wrap;
 }
-.Img{
+
+.Img {
     height: 500px;
 }
-.MainInfo{
+
+.MainInfo {
     width: 50%;
     display: flex;
     margin: 10px;
     flex-direction: column;
     box-sizing: border-box;
 }
+
 .Background {
     width: 90%;
     margin-left: 5%;
 }
+
 .Overview {
 
 }
+
 .Positions {
-    margin: 10px 20px 0 10% ;
+    margin: 10px 20px 0 10%;
     border: white solid 5px;
     position: sticky;
     bottom: 150px;
 }
+
 .Genres {
- margin: 5px;
+    margin: 5px;
+    background-color: #c2cdd4;
 }
+
 .MainCard {
     padding: 50px;
     display: flex;
@@ -36,6 +44,17 @@
     justify-content: center;
 
 }
+
 .Stars {
     position: static;
+}
+
+.White {
+    background: #aaaeba;
+    color: #f2f2f2;
+}
+
+.Dark {
+background: #212f39;
+    color: #bac5cf;
 }

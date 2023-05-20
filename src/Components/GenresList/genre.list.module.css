@@ -11,9 +11,14 @@
     position: static;
 
 }
-.Reset {
+
+.White {
     margin: 2px;
-    border: solid #555cc7 1px;
-    background: #b1b1b1;
-    color: white;
+    background-color: rgba(255, 255, 255, 0.89);
+}
+.Dark {
+    margin: 2px;
+    background: #969ea5;
+    border: solid 1px #c3c3c3;
+    color: #212f39;
 }

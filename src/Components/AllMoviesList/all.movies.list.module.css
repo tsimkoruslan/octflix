@@ -16,6 +16,9 @@
 .GenresList{
     margin-top: 20px;
 }
-.Movie {
-
+.Dark {
+background: #212f39;
+}
+.White {
+    background: #aaaeba;
 }

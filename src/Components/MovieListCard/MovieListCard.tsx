@@ -5,6 +5,7 @@ import {IResults} from "../../interfaces";
 import css from './movi.list.card.module.css'
 import {posterURL} from "../../constans";
 import empty from '../../assets/images/empty/Programmer - Blank Poster.jpeg'
+import {useAppSelector} from "../../hooks";
 
 interface IProps {
     movie: IResults
@@ -12,6 +13,9 @@ interface IProps {
 }
 
 const MovieListCard: FC<IProps> = ({movie}) => {
+    const {toggle} = useAppSelector(state => state.moviesReducer)
+
+    const dark = toggle ? `${css.Dark}`: css.White
 
     const {title, vote_average, poster_path, release_date} = movie
 
@@ -21,7 +25,7 @@ const MovieListCard: FC<IProps> = ({movie}) => {
 
     return (
         <Link className={`${css.Normalize}`} to={'/info'} state={{...movie}}>
-            <div className={`card h-100 ${css.Position} ${css.Card}`}>
+            <div className={`card h-100 ${css.Position} ${css.Card} ${dark}`}>
                 <div>
                     <img className="card-img-top" src={img} alt={title}/>
                 </div>

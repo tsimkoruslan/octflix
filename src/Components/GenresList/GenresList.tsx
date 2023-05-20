@@ -7,9 +7,9 @@ import {moviesActions} from "../../redux";
 
 
 const GenresList = () => {
-    const {genres, arrIdGenres} = useAppSelector(state => state.moviesReducer);
+    const {genres, arrIdGenres, toggle} = useAppSelector(state => state.moviesReducer);
     const dispatch = useAppDispatch();
-
+    const dark = toggle ? `${css.Dark}`: css.White
     useEffect(() => {
         dispatch(moviesActions.getGenres())
     }, [dispatch])
@@ -34,7 +34,7 @@ const GenresList = () => {
             }
             </div>
             <div>
-                <button type="button" className={`btn btn-outline-secondary ${css.Reset}`} onClick={reset} >Reset Genre</button>
+                <button type="button" className={`btn btn-outline-secondary ${dark}`} onClick={reset} >Reset Genre</button>
             </div>
 
         </div>

@@ -12,7 +12,9 @@ import {GenresList} from "../GenresList";
 const AllMoviesList: FC = () => {
     const dispatch = useAppDispatch();
     const [query,] = useSearchParams()
-    const {movies} = useAppSelector(state => state.moviesReducer);
+    const {movies, toggle} = useAppSelector(state => state.moviesReducer);
+
+    const dark = toggle ? `${css.Dark}`: css.White
 
     useEffect(() => {
         dispatch(moviesActions.getMovies(+query.get('page')))
@@ -20,7 +22,7 @@ const AllMoviesList: FC = () => {
 
 
     return (
-        <div className={css.Main}>
+        <div className={`${css.Main}  ${dark}`}>
             <div className={css.SearchBar}><SearchForm/></div>
             <div className={css.GenresList}><GenresList/></div>
             <div className={`row row-cols-1 row-cols-md-5 g-4`}>

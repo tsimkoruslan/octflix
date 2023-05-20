@@ -8,6 +8,15 @@
 }
 .Text {
     margin-bottom: 10px;
-    color: darkred;
+
     font-size: 20px;
+}
+
+.Dark{
+    background: #212f39;
+    color: #aaaeba;
+}
+.White {
+    color: #27353f;
+    background: #aaaeba;
 }

@@ -23,11 +23,11 @@ const MovieInfo: FC = () => {
         release_date
     } = location.state as IResults;
 
-    const {genres} = useAppSelector(state => state.moviesReducer);
+    const {genres, toggle} = useAppSelector(state => state.moviesReducer);
     const filteredGenres = genres?.genres.filter(genre => genre_ids.includes(genre.id));
 
     const dispatch = useAppDispatch()
-
+    const dark = toggle ? `${css.Dark}`: css.White
     const searchGenre = (id) => {
         dispatch(moviesActions.getMoviesByGenre(id))
     }
@@ -51,7 +51,7 @@ const MovieInfo: FC = () => {
     const imgBackgroundEmpty = backdrop_path ? `${backgroundImage}${backdrop_path}` : `${emptyBackground}`
 
     return (
-        <div className={css.Parent}>
+        <div className={`${css.Parent} ${dark}`}>
             <img className={css.Background} src={imgBackgroundEmpty} alt=""/>
             <div className={css.Positions}>
                 <img className={css.Img} src={imgPosterEmpty} alt={title}/>
@@ -70,7 +70,7 @@ const MovieInfo: FC = () => {
 
                             filteredGenres.map(i =>
                                 <Link key={i.id} to={'/genre'}>
-                                    <button className={`btn btn-outline-secondary ${css.Genres}`}
+                                    <button className={`btn btn-outline-secondary ${css.Genres} `}
                                             onClick={() => {
                                                 searchGenre(i.id)
                                             }}>

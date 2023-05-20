@@ -13,8 +13,9 @@ interface IProps {
 const GenreCard: FC<IProps> = ({genre}) => {
     const {name, id} = genre
 
-    const {arrIdGenres} = useAppSelector(state => state.moviesReducer)
+    const {arrIdGenres, toggle} = useAppSelector(state => state.moviesReducer)
     const dispatch = useAppDispatch()
+    const dark = toggle ? `${css.Dark}`: css.White
     const push =  () => {
         const updatedGenres = [...arrIdGenres, id.toString()];
 
@@ -31,7 +32,7 @@ const GenreCard: FC<IProps> = ({genre}) => {
 
     return (
         <div>
-            <button disabled={disabled} type="button" className={`btn btn-outline-secondary ${css.Button} `} onClick={push}>{name}</button>
+            <button disabled={disabled} type="button" className={`btn btn-outline-secondary ${dark} `} onClick={push}>{name}</button>
         </div>
     );
 };
