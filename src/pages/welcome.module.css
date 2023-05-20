@@ -7,7 +7,7 @@
 }
 .Text {
     margin: 50px;
-    color: darkred;
+
     text-align: center;
 }
 .Partner {
@@ -18,5 +18,11 @@
     width: 80px;
     padding: 10px;
 }
-.PositionHomeLink{
+.Red{
+    color: #cb0101;
+}
+
+.Dark {
+background: #212f39;
+    color: #aaaeba;
 }
