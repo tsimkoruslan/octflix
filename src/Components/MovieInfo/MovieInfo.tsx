@@ -1,4 +1,4 @@
-import React, {Component, FC, useMemo} from 'react';
+import React, {Component, FC} from 'react';
 import {Link, useLocation} from "react-router-dom";
 import StarRatings from 'react-star-ratings';
 
@@ -14,7 +14,6 @@ const MovieInfo: FC = () => {
 
     const location = useLocation()
     const {
-        id,
         genre_ids,
         title,
         vote_average,
