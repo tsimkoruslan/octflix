@@ -1,5 +1,5 @@
 export interface IVideos {
-    id: number
+    id: number;
     results: [
             IResResults
     ]

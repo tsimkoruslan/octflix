@@ -20,10 +20,6 @@
     margin-left: 5%;
 }
 
-.Overview {
-
-}
-
 .Positions {
     margin: 10px 20px 0 10%;
     border: white solid 5px;
@@ -53,7 +49,6 @@
     background: #aaaeba;
     color: #f2f2f2;
 }
-
 .Dark {
 background: #212f39;
     color: #bac5cf;
@@ -63,7 +58,6 @@ background: #212f39;
     right: 10%;
     bottom: 20px;
 }
-
 @media (max-width: 1500px ) {
     .Trailer {
         position: absolute;

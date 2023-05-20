@@ -4,11 +4,9 @@
     flex-wrap: wrap;
     box-sizing: border-box;
     justify-content: center;
-
 }
 .Text {
     margin-bottom: 10px;
-
     font-size: 20px;
 }
 

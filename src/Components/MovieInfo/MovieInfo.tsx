@@ -1,19 +1,21 @@
-import React, {Component, FC, useEffect} from 'react';
-import {Link, useLocation} from "react-router-dom";
 import StarRatings from 'react-star-ratings';
+import {Link, useLocation} from "react-router-dom";
+import React, {Component, FC, useEffect} from 'react';
 
-import {backgroundImage, posterURL} from "../../constans";
-import css from './movie.info.module.css'
-import {useAppDispatch, useAppSelector} from "../../hooks";
-import {IResults} from "../../interfaces";
-import emptyPoster from "../../assets/images/empty/Programmer - Blank Poster.jpeg";
-import emptyBackground from "../../assets/images/empty/background_photo.jpeg";
-import {moviesActions} from "../../redux";
 import {Trailer} from "../Trailer";
+import css from './movie.info.module.css';
+import {moviesActions} from "../../redux";
+import {IResults} from "../../interfaces";
+import {backgroundImage, posterURL} from "../../constans";
+import {useAppDispatch, useAppSelector} from "../../hooks";
+import emptyBackground from "../../assets/images/empty/background_photo.jpeg";
+import emptyPoster from "../../assets/images/empty/Programmer - Blank Poster.jpeg";
 
 const MovieInfo: FC = () => {
 
-    const location = useLocation()
+    const dispatch = useAppDispatch();
+    const location = useLocation();
+
     const {id,
         genre_ids,
         title,
@@ -25,18 +27,16 @@ const MovieInfo: FC = () => {
     } = location.state as IResults;
 
     const {genres, toggle} = useAppSelector(state => state.moviesReducer);
+
     const filteredGenres = genres?.genres.filter(genre => genre_ids.includes(genre.id));
 
-    const dispatch = useAppDispatch()
-    const dark = toggle ? `${css.Dark}`: css.White
+    const dark = toggle ? `${css.Dark}`: css.White;
     const searchGenre = (id) => {
-        dispatch(moviesActions.getMoviesByGenre(id))
+        dispatch(moviesActions.getMoviesByGenre(id));
     }
-
     useEffect(()=>{
-        dispatch(moviesActions.getVideos(id) )
+        dispatch(moviesActions.getVideos(id) );
     },[dispatch, id])
-
     class Bar extends Component {
         render() {
             return (
@@ -45,13 +45,14 @@ const MovieInfo: FC = () => {
                              starDimension="40px"
                              starSpacing="10px"
                 />
-            );
+            )
         }
     }
 
-    const stars = new Bar(StarRatings)
-    const imgPosterEmpty = poster_path ? `${posterURL}${poster_path}` : `${emptyPoster}`
-    const imgBackgroundEmpty = backdrop_path ? `${backgroundImage}${backdrop_path}` : `${emptyBackground}`
+    const stars = new Bar(StarRatings);
+
+    const imgPosterEmpty = poster_path ? `${posterURL}${poster_path}` : `${emptyPoster}`;
+    const imgBackgroundEmpty = backdrop_path ? `${backgroundImage}${backdrop_path}` : `${emptyBackground}`;
 
     return (
         <div className={`${css.Parent} ${dark}`}>

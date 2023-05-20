@@ -1,27 +1,23 @@
 import React, {FC} from 'react';
 import {Link} from "react-router-dom";
 
-import {IResults} from "../../interfaces";
-import css from './movi.list.card.module.css'
 import {posterURL} from "../../constans";
-import empty from '../../assets/images/empty/Programmer - Blank Poster.jpeg'
+import {IResults} from "../../interfaces";
 import {useAppSelector} from "../../hooks";
+import css from './movi.list.card.module.css';
+import empty from '../../assets/images/empty/Programmer - Blank Poster.jpeg';
 
 interface IProps {
-    movie: IResults
-
+    movie: IResults;
 }
 
 const MovieListCard: FC<IProps> = ({movie}) => {
-    const {toggle} = useAppSelector(state => state.moviesReducer)
+    const {toggle} = useAppSelector(state => state.moviesReducer);
+    const {title, vote_average, poster_path, release_date} = movie;
 
-    const dark = toggle ? `${css.Dark}`: css.White
+    const dark = toggle ? `${css.Dark}`: css.White;
 
-    const {title, vote_average, poster_path, release_date} = movie
-
-    const img = poster_path ? `${posterURL}${poster_path}` : `${empty}`
-
-
+    const img = poster_path ? `${posterURL}${poster_path}` : `${empty}`;
 
     return (
         <Link className={`${css.Normalize}`} to={'/info'} state={{...movie}}>

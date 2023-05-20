@@ -1,16 +1,15 @@
 import React, {FC} from 'react';
+import {joiResolver} from "@hookform/resolvers/joi";
 import {SubmitHandler, useForm} from "react-hook-form";
 
-import {useAppDispatch, useAppSelector} from "../../hooks";
 import {moviesActions} from "../../redux";
-
-import css from './search.form.module.css'
-import {joiResolver} from "@hookform/resolvers/joi";
 import {joiTitle} from "../../validators";
+import css from './search.form.module.css';
+import {useAppDispatch, useAppSelector} from "../../hooks";
 
 interface ITitle {
-    title: string
-    page: string
+    title: string;
+    page: string;
 }
 
 const SearchForm: FC = () => {
@@ -20,13 +19,13 @@ const SearchForm: FC = () => {
     })
     const dispatch = useAppDispatch();
 
-    const {toggle} = useAppSelector(state => state.moviesReducer)
+    const {toggle} = useAppSelector(state => state.moviesReducer);
 
-    const dark = toggle ? `${css.Dark}` : css.White
+    const dark = toggle ? `${css.Dark}` : css.White;
 
     const search: SubmitHandler<ITitle> = ({title}) => {
-        dispatch(moviesActions.search(title))
-        reset()
+        dispatch(moviesActions.search(title));
+        reset();
     }
 
     return (

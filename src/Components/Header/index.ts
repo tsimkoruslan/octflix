@@ -1,2 +1,4 @@
-export * from './Header'
-export * from './Switcher/Switcher'
+export * from './Logo';
+export * from './Switcher';
+export * from './HomeLink';
+export * from './AvatarUser';

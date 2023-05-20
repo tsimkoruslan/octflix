@@ -1,29 +1,27 @@
 import React, {FC} from 'react';
 
-import {InfoGenre} from "../../interfaces";
-import css from './genre.card.module.css'
-import {useAppDispatch, useAppSelector} from "../../hooks";
 import {moviesActions} from "../../redux";
+import css from './genre.card.module.css';
+import {InfoGenre} from "../../interfaces";
+import {useAppDispatch, useAppSelector} from "../../hooks";
 
 
 interface IProps {
-    genre: InfoGenre
+    genre: InfoGenre;
 }
 
 const GenreCard: FC<IProps> = ({genre}) => {
-    const {name, id} = genre
+    const dispatch = useAppDispatch();
 
-    const {arrIdGenres, toggle} = useAppSelector(state => state.moviesReducer)
-    const dispatch = useAppDispatch()
-    const dark = toggle ? `${css.Dark}`: css.White
+    const {name, id} = genre;
+    const {arrIdGenres, toggle} = useAppSelector(state => state.moviesReducer);
+    const dark = toggle ? `${css.Dark}`: css.White;
     const push =  () => {
         const updatedGenres = [...arrIdGenres, id.toString()];
 
-        dispatch(moviesActions.pushIdGenres(updatedGenres))
-        dispatch(moviesActions.getMoviesByGenre(updatedGenres.toString()))
-
+        dispatch(moviesActions.pushIdGenres(updatedGenres));
+        dispatch(moviesActions.getMoviesByGenre(updatedGenres.toString()));
     }
-
     function disabledFunc(arrId, id:string) {
         return arrId.includes(id.toString());
     }

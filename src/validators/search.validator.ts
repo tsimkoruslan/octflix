@@ -5,4 +5,4 @@ export const joiTitle = Joi.object({
         'string.empty': 'Min 1 character',
         'string.min': 'Min 1 character'
     })
-})
+});

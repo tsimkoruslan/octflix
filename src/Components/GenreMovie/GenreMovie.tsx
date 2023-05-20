@@ -1,16 +1,15 @@
 import React from 'react';
 
-import {useAppSelector} from "../../hooks";
-
-import {MovieListCard} from "../MovieListCard";
 import css from './genre.movie.module.css'
+import {useAppSelector} from "../../hooks";
+import {MovieListCard} from "../MovieListCard";
 
 const GenreMovie = () => {
 
-    const {movies, toggle} = useAppSelector(state => state.moviesReducer)
-    const arr = movies?.results
+    const {movies, toggle} = useAppSelector(state => state.moviesReducer);
+    const arr = movies?.results;
 
-    const dark = toggle ? `${css.Dark} ${css.Main}`:` ${css.White } ${css.Main}`
+    const dark = toggle ? `${css.Dark} ${css.Main}`:` ${css.White } ${css.Main}`;
     return (
             <div className={dark}>
                 <div className={css.Text}>Movies of the same genre ↓</div>

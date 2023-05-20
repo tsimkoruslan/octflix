@@ -1,25 +1,25 @@
 import React, {FC, useEffect} from 'react';
 import {useSearchParams} from "react-router-dom";
 
-import {useAppDispatch, useAppSelector} from "../../hooks";
-import {moviesActions} from "../../redux";
-import {MovieListCard} from "../MovieListCard";
 import {Paginator} from "../Paginator";
-import css from './all.movies.list.module.css'
 import {SearchForm} from "../SearchForm";
 import {GenresList} from "../GenresList";
+import {moviesActions} from "../../redux";
+import {MovieListCard} from "../MovieListCard";
+import css from './all.movies.list.module.css';
+import {useAppDispatch, useAppSelector} from "../../hooks";
 
 const AllMoviesList: FC = () => {
     const dispatch = useAppDispatch();
-    const [query,] = useSearchParams()
+    const [query,] = useSearchParams();
     const {movies, toggle} = useAppSelector(state => state.moviesReducer);
 
-    const dark = toggle ? `${css.Dark}`: css.White
 
     useEffect(() => {
-        dispatch(moviesActions.getMovies(+query.get('page')))
+        dispatch(moviesActions.getMovies(+query.get('page')));
     }, [dispatch, query]);
 
+    const dark = toggle ? `${css.Dark}`: css.White;
 
     return (
         <div className={`${css.Main}  ${dark}`}>
@@ -31,7 +31,6 @@ const AllMoviesList: FC = () => {
                     :
                     movies.results.map((movie) => (<MovieListCard key={movie.id} movie={movie}/>))
                     }
-
             </div>
             <div><Paginator/></div>
         </div>

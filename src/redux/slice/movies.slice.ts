@@ -1,5 +1,5 @@
-import {createAsyncThunk, createSlice, isFulfilled, isRejectedWithValue} from "@reduxjs/toolkit";
 import {AxiosError} from "axios";
+import {createAsyncThunk, createSlice, isFulfilled, isRejectedWithValue} from "@reduxjs/toolkit";
 
 import {IGenre, IMovies} from "../../interfaces";
 import {moviesService} from "../../services";
@@ -30,11 +30,11 @@ const getMovies = createAsyncThunk<IMovies, number>(
     'moviesSlice/getMovies',
     async (page, {rejectWithValue}) => {
         try {
-            const {data} = await moviesService.getMovies(page)
-            return data
+            const {data} = await moviesService.getMovies(page);
+            return data;
         } catch (e) {
-            const err = e as AxiosError
-            return rejectWithValue(err.response.data)
+            const err = e as AxiosError;
+            return rejectWithValue(err.response.data);
         }
     }
 )
@@ -43,11 +43,11 @@ const getGenres = createAsyncThunk<IGenre, void>(
     'genresSlice/getGenres',
     async (_, {rejectWithValue}) => {
         try {
-            const {data} = await moviesService.getGenre()
-            return data
+            const {data} = await moviesService.getGenre();
+            return data;
         } catch (e) {
-            const err = e as AxiosError
-            return rejectWithValue(err.response.data)
+            const err = e as AxiosError;
+            return rejectWithValue(err.response.data);
         }
     }
 )
@@ -56,11 +56,11 @@ const search = createAsyncThunk<IMovies, string>(
     'searchSlice/search',
     async (title, {rejectWithValue}) => {
         try {
-            const {data} = await moviesService.searchMovie(title)
-            return data
+            const {data} = await moviesService.searchMovie(title);
+            return data;
         } catch (e) {
-            const err = e as AxiosError
-            return rejectWithValue(err.response.data)
+            const err = e as AxiosError;
+            return rejectWithValue(err.response.data);
         }
     }
 )
@@ -69,11 +69,11 @@ const getMoviesByGenre = createAsyncThunk<IMovies, string>(
     'genresSlice/getMoviesByGenre',
     async (id, {rejectWithValue}) => {
         try {
-            const {data} = await moviesService.getGenreById(id.toString())
-            return data
+            const {data} = await moviesService.getGenreById(id.toString());
+            return data;
         } catch (e) {
-            const err = e as AxiosError
-            return rejectWithValue(err.response.data)
+            const err = e as AxiosError;
+            return rejectWithValue(err.response.data);
         }
     }
 )
@@ -82,11 +82,11 @@ const getVideos = createAsyncThunk<IVideos, number>(
     'genresSlice/getVideos',
     async (id, {rejectWithValue}) => {
         try {
-            const {data} = await moviesService.getVideosById(id)
-            return data
+            const {data} = await moviesService.getVideosById(id);
+            return data;
         } catch (e) {
-            const err = e as AxiosError
-            return rejectWithValue(err.response.data)
+            const err = e as AxiosError;
+            return rejectWithValue(err.response.data);
         }
     }
 )
@@ -97,10 +97,10 @@ const slice = createSlice({
         initialState,
         reducers: {
             pushIdGenres: (state, action) => {
-                state.arrIdGenres = action.payload
+                state.arrIdGenres = action.payload;
             },
             switcher: (state) => {
-                state.toggle = !state.toggle
+                state.toggle = !state.toggle;
             }
 
         },
@@ -108,30 +108,30 @@ const slice = createSlice({
         extraReducers: builder => {
             builder
                 .addCase(getMoviesByGenre.fulfilled, (state, action) => {
-                    state.movies = action.payload
+                    state.movies = action.payload;
                 })
                 .addCase(getMovies.fulfilled, (state, action) => {
-                    state.movies = action.payload
+                    state.movies = action.payload;
                 })
 
                 .addCase(search.fulfilled, (state, action) => {
-                    state.movies = action.payload
+                    state.movies = action.payload;
                 })
                 .addCase(getGenres.fulfilled, (state, action) => {
-                    state.genres = action.payload
+                    state.genres = action.payload;
                 })
                 .addCase(getVideos.fulfilled, (state, action) => {
-                    const {results} = action.payload
-                    const trailer = results.find(official => official.name === 'Official Trailer')
-                    state.videos = trailer
+                    const {results} = action.payload;
+                    const trailer = results.find(official => official.name === 'Official Trailer');
+                    state.videos = trailer;
                 })
 
 
                 .addMatcher(isFulfilled, state => {
-                    state.error = null
+                    state.error = null;
                 })
                 .addMatcher(isRejectedWithValue(), (state, action) => {
-                    state.error = action.payload as any
+                    state.error = action.payload as any;
                 })
         },
     }

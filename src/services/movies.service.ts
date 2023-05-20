@@ -1,9 +1,8 @@
-import {axiosService} from "./axios.service";
 import {IRes} from "../types";
-import {IGenre, IMovies} from "../interfaces";
 import {urls} from "../constans";
+import {axiosService} from "./axios.service";
+import {IGenre, IMovies} from "../interfaces";
 import {IVideos} from "../interfaces/IVideos";
-
 
 const moviesService = {
     getMovies: (page: number = 1): IRes<IMovies> => axiosService.get(urls.basePage, {params: {page}}),

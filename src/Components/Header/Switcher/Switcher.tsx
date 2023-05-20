@@ -1,8 +1,8 @@
 import React, {FC, useEffect} from 'react';
 
 import css from './switcher.module.css';
-import {useAppDispatch, useAppSelector} from "../../../hooks";
 import {moviesActions} from "../../../redux";
+import {useAppDispatch, useAppSelector} from "../../../hooks";
 
 const Switcher: FC = () => {
     const {toggle} = useAppSelector(state => state.moviesReducer)

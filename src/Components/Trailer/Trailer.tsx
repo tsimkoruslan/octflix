@@ -1,11 +1,10 @@
 import React from 'react';
+
 import css from "./tariler.module.css";
 import {useAppSelector} from "../../hooks";
 
 const Trailer = () => {
-    const {videos} = useAppSelector(state => state.moviesReducer)
-
-    console.log(videos)
+    const {videos} = useAppSelector(state => state.moviesReducer);
 
     return (
         <div className={css.Positions} >

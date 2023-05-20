@@ -1,2 +1,2 @@
-export * from './GenreMovie'
-export * from './genre.movie.module.css'
+export * from './GenreMovie';
+export * from './genre.movie.module.css';

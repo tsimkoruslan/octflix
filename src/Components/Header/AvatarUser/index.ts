@@ -1,1 +1,2 @@
-export * from './AvatarUser'
+export * from './AvatarUser';
+export * from './avatar.module.css';

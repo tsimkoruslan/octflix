@@ -1,1 +1,2 @@
-export * from './Paginator'
+export * from './Paginator';
+export * from './paginator.module.css';

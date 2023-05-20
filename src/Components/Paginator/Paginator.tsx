@@ -1,20 +1,21 @@
 import React, {FC} from 'react';
 import {useSearchParams} from "react-router-dom";
 
-import css from './paginator.module.css'
+import css from './paginator.module.css';
 import {useAppSelector} from "../../hooks";
 
 const Paginator: FC = () => {
 
-    const {toggle} = useAppSelector(state => state.moviesReducer)
-    const dark = toggle ? `${css.Dark}`: css.White
+    const {toggle} = useAppSelector(state => state.moviesReducer);
 
-    const [query, setQuery] = useSearchParams({page:'1'})
+    const dark = toggle ? `${css.Dark}`: css.White;
+
+    const [query, setQuery] = useSearchParams({page:'1'});
     const prev = () => {
-        setQuery(prev1 =>({...prev1, page: +prev1.get('page') - 1}))
+        setQuery(prev1 =>({...prev1, page: +prev1.get('page') - 1}));
     }
     const next = () => {
-        setQuery(prev1 => ({...prev1, page: +prev1.get('page') + 1}))
+        setQuery(prev1 => ({...prev1, page: +prev1.get('page') + 1}));
     }
 
     return (

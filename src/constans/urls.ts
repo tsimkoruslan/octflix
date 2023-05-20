@@ -1,6 +1,6 @@
-const baseURL = 'https://api.themoviedb.org/3'
-const posterURL = 'https://image.tmdb.org/t/p/w500/'
-const backgroundImage = 'https://image.tmdb.org/t/p/original'
+const baseURL = 'https://api.themoviedb.org/3';
+const posterURL = 'https://image.tmdb.org/t/p/w500/';
+const backgroundImage = 'https://image.tmdb.org/t/p/original';
 const urls = {
     basePage: '/discover/movie',
     genre: '/genre/list',
@@ -12,7 +12,6 @@ const urls = {
     videos: '/videos'
 }
 
-// https://api.themoviedb.org/3/movie/617653/videos
 
 export {
     baseURL,

@@ -1,17 +1,17 @@
 import React from 'react';
 
 import css from './welcome.module.css'
-import logo from '../assets/images/logo/icons8-movie-100.png'
-import tmdbLogo from '../assets/images/Partner/tmdb.svg'
-import octenLogo from '../assets/images/Partner/octen_logo.png'
-import bootstrapLogo from '../assets/images/Partner/bootstrap.png'
-import Icons8Logo from '../assets/images/Partner/Icons8_logo.png'
-import gitHubLogo from '../assets/images/Partner/github-mark.png'
 import {HomeLink} from "../Components";
 import {useAppSelector} from "../hooks";
+import tmdbLogo from '../assets/images/Partner/tmdb.svg'
+import logo from '../assets/images/logo/icons8-movie-100.png'
+import octenLogo from '../assets/images/Partner/octen_logo.png'
+import Icons8Logo from '../assets/images/Partner/Icons8_logo.png'
+import gitHubLogo from '../assets/images/Partner/github-mark.png'
+import bootstrapLogo from '../assets/images/Partner/bootstrap.png'
 const WelcomePage = () => {
-    const {toggle} = useAppSelector(state => state.moviesReducer)
-    const dark = toggle ? `${css.Dark} ${css.Main}`: `${css.White} ${css.Main}`
+    const {toggle} = useAppSelector(state => state.moviesReducer);
+    const dark = toggle ? `${css.Dark} ${css.Main}`: `${css.White} ${css.Main}`;
     return (
         <div className={dark} >
             <div className={css.Text}>

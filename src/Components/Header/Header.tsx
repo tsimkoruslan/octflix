@@ -8,9 +8,9 @@ import {HomeLink} from "./HomeLink";
 import {useAppSelector} from "../../hooks";
 
 const Header: FC = () => {
-   const {toggle} = useAppSelector(state => state.moviesReducer)
+   const {toggle} = useAppSelector(state => state.moviesReducer);
 
-    const dark = toggle ? `${css.Dark}`: css.White
+    const dark = toggle ? `${css.Dark}`: css.White;
 
     return (
         <div className={`${css.Header} ${dark}`}>

@@ -1,2 +1,2 @@
-export * from './axios.Res.type'
-export * from './setState.type'
+export * from './axios.Res.type';
+export * from './setState.type';

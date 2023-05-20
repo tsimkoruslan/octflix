@@ -1,21 +1,22 @@
 import React, {useEffect} from 'react';
 
-import {useAppDispatch, useAppSelector} from "../../hooks";
 import {GenreCard} from "../GenreCard";
-import css from './genre.list.module.css'
+import css from './genre.list.module.css';
 import {moviesActions} from "../../redux";
-
+import {useAppDispatch, useAppSelector} from "../../hooks";
 
 const GenresList = () => {
-    const {genres, arrIdGenres, toggle} = useAppSelector(state => state.moviesReducer);
     const dispatch = useAppDispatch();
-    const dark = toggle ? `${css.Dark}`: css.White
+    const {genres, arrIdGenres, toggle} = useAppSelector(state => state.moviesReducer);
+
+    const dark = toggle ? `${css.Dark}`: css.White;
+
     useEffect(() => {
-        dispatch(moviesActions.getGenres())
+        dispatch(moviesActions.getGenres());
     }, [dispatch])
 
     useEffect(()=>{
-        dispatch(moviesActions.getMoviesByGenre(arrIdGenres.toString()))
+        dispatch(moviesActions.getMoviesByGenre(arrIdGenres.toString()));
     },[dispatch, arrIdGenres])
 
     const reset = () => {
@@ -23,8 +24,6 @@ const GenresList = () => {
     }
 
     return (
-
-
         <div className={css.ButtonPosition}>
             <div className={css.Flex} >
                 {!genres ?

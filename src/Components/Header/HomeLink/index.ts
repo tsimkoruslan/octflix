@@ -1,2 +1,2 @@
-export * from './HomeLink'
-export * from '../../GenresList'
+export * from './HomeLink';
+export * from './home.link.module.css';

@@ -8,14 +8,14 @@ import {WelcomePage} from "./pages";
 
 function App() {
     return (
-        <Routes>
-            <Route path={'/'} element={<MainLayout/>}>
-                <Route index element={<Navigate to={'welcome'}/>}/>
-                <Route path={'movies'} element={<AllMoviesList/>}/>
-                <Route path={'info'} element={<MovieInfo/>}/>
-                <Route path={'genre'} element={<GenreMovie/>}/>
-                <Route path={'welcome'} element={<WelcomePage/>}/>
-            </Route>
+        <Routes>;
+            <Route path={'/'} element={<MainLayout/>}>;
+                <Route index element={<Navigate to={'welcome'}/>}/>;
+                <Route path={'movies'} element={<AllMoviesList/>}/>;
+                <Route path={'info'} element={<MovieInfo/>}/>;
+                <Route path={'genre'} element={<GenreMovie/>}/>;
+                <Route path={'welcome'} element={<WelcomePage/>}/>;
+            </Route>;
         </Routes>
     );
 }
