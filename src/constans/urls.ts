@@ -7,8 +7,12 @@ const urls = {
     search: '/search/movie?query=',
     genreBuId: '?with_genres=',
     infoById: '/movie/',
-    page: '?page='
+    page: '?page=',
+    movie: '/movie/',
+    videos: '/videos'
 }
+
+// https://api.themoviedb.org/3/movie/617653/videos
 
 export {
     baseURL,

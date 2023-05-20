@@ -5,6 +5,8 @@ import {useAppDispatch, useAppSelector} from "../../hooks";
 import {moviesActions} from "../../redux";
 
 import css from './search.form.module.css'
+import {joiResolver} from "@hookform/resolvers/joi";
+import {joiTitle} from "../../validators";
 
 interface ITitle {
     title: string
@@ -12,12 +14,15 @@ interface ITitle {
 }
 
 const SearchForm: FC = () => {
-    const {register, handleSubmit, reset} = useForm()
+    const {register, handleSubmit, reset, formState: { isValid}} = useForm({
+        mode: 'all',
+        resolver: joiResolver(joiTitle)
+    })
     const dispatch = useAppDispatch();
 
     const {toggle} = useAppSelector(state => state.moviesReducer)
 
-    const dark = toggle ? `${css.Dark}`: css.White
+    const dark = toggle ? `${css.Dark}` : css.White
 
     const search: SubmitHandler<ITitle> = ({title}) => {
         dispatch(moviesActions.search(title))
@@ -30,7 +35,7 @@ const SearchForm: FC = () => {
                 <input type="text" className={`form-control ${dark}`}
                        placeholder={'Search movie'} aria-label="Recipient's username"
                        aria-describedby="button-addon2"{...register('title')} />
-                <button className="btn btn-outline-secondary" id="button-addon2">search</button>
+                <button disabled={!isValid} className="btn btn-outline-secondary" id="button-addon2">search</button>
             </form>
         </div>
     );

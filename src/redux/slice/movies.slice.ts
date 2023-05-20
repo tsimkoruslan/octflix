@@ -3,6 +3,7 @@ import {AxiosError} from "axios";
 
 import {IGenre, IMovies} from "../../interfaces";
 import {moviesService} from "../../services";
+import {IResResults, IVideos} from "../../interfaces/IVideos";
 
 interface IState {
     genres: IGenre,
@@ -10,7 +11,9 @@ interface IState {
     movies: IMovies,
     error: string,
     img: string,
-    toggle: boolean
+    toggle: boolean,
+
+    videos: IResResults
 }
 
 const initialState: IState = {
@@ -19,7 +22,8 @@ const initialState: IState = {
     error: null,
     img: null,
     arrIdGenres: [],
-    toggle: false
+    toggle: false,
+    videos: null
 }
 
 const getMovies = createAsyncThunk<IMovies, number>(
@@ -61,11 +65,24 @@ const search = createAsyncThunk<IMovies, string>(
     }
 )
 
-const getMoviesByGenre = createAsyncThunk<IMovies, string >(
+const getMoviesByGenre = createAsyncThunk<IMovies, string>(
     'genresSlice/getMoviesByGenre',
     async (id, {rejectWithValue}) => {
         try {
             const {data} = await moviesService.getGenreById(id.toString())
+            return data
+        } catch (e) {
+            const err = e as AxiosError
+            return rejectWithValue(err.response.data)
+        }
+    }
+)
+
+const getVideos = createAsyncThunk<IVideos, number>(
+    'genresSlice/getVideos',
+    async (id, {rejectWithValue}) => {
+        try {
+            const {data} = await moviesService.getVideosById(id)
             return data
         } catch (e) {
             const err = e as AxiosError
@@ -80,13 +97,14 @@ const slice = createSlice({
         initialState,
         reducers: {
             pushIdGenres: (state, action) => {
-               state.arrIdGenres = action.payload
-        },
+                state.arrIdGenres = action.payload
+            },
             switcher: (state) => {
                 state.toggle = !state.toggle
             }
 
         },
+
         extraReducers: builder => {
             builder
                 .addCase(getMoviesByGenre.fulfilled, (state, action) => {
@@ -101,6 +119,11 @@ const slice = createSlice({
                 })
                 .addCase(getGenres.fulfilled, (state, action) => {
                     state.genres = action.payload
+                })
+                .addCase(getVideos.fulfilled, (state, action) => {
+                    const {results} = action.payload
+                    const trailer = results.find(official => official.name === 'Official Trailer')
+                    state.videos = trailer
                 })
 
 
@@ -121,7 +144,8 @@ const moviesActions = {
     search,
     getGenres,
     getMovies,
-    getMoviesByGenre
+    getMoviesByGenre,
+    getVideos
 }
 
 export {

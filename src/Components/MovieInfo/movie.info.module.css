@@ -58,3 +58,16 @@
 background: #212f39;
     color: #bac5cf;
 }
+.Trailer {
+    position: absolute;
+    right: 10%;
+    bottom: 20px;
+}
+
+@media (max-width: 1500px ) {
+    .Trailer {
+        position: absolute;
+        right: 5%;
+        bottom: -55%;
+    }
+}

@@ -2,7 +2,7 @@ import {axiosService} from "./axios.service";
 import {IRes} from "../types";
 import {IGenre, IMovies} from "../interfaces";
 import {urls} from "../constans";
-
+import {IVideos} from "../interfaces/IVideos";
 
 
 const moviesService = {
@@ -10,6 +10,7 @@ const moviesService = {
     searchMovie: (title: string): IRes<IMovies> => axiosService.get(`${urls.search}${title}`),
     getGenre: (): IRes<IGenre> => axiosService.get(urls.genre),
     getGenreById: (id: string): IRes<IMovies> => axiosService.get(`${urls.basePage}${urls.genreBuId}${id}`),
+    getVideosById: (id: number): IRes<IVideos> => axiosService.get(`${urls.movie}${id}${urls.videos}`)
 }
 
 export {

@@ -1,4 +1,4 @@
-import React, {Component, FC} from 'react';
+import React, {Component, FC, useEffect} from 'react';
 import {Link, useLocation} from "react-router-dom";
 import StarRatings from 'react-star-ratings';
 
@@ -9,11 +9,12 @@ import {IResults} from "../../interfaces";
 import emptyPoster from "../../assets/images/empty/Programmer - Blank Poster.jpeg";
 import emptyBackground from "../../assets/images/empty/background_photo.jpeg";
 import {moviesActions} from "../../redux";
+import {Trailer} from "../Trailer";
 
 const MovieInfo: FC = () => {
 
     const location = useLocation()
-    const {
+    const {id,
         genre_ids,
         title,
         vote_average,
@@ -32,6 +33,9 @@ const MovieInfo: FC = () => {
         dispatch(moviesActions.getMoviesByGenre(id))
     }
 
+    useEffect(()=>{
+        dispatch(moviesActions.getVideos(id) )
+    },[dispatch, id])
 
     class Bar extends Component {
         render() {
@@ -46,7 +50,6 @@ const MovieInfo: FC = () => {
     }
 
     const stars = new Bar(StarRatings)
-
     const imgPosterEmpty = poster_path ? `${posterURL}${poster_path}` : `${emptyPoster}`
     const imgBackgroundEmpty = backdrop_path ? `${backgroundImage}${backdrop_path}` : `${emptyBackground}`
 
@@ -56,6 +59,7 @@ const MovieInfo: FC = () => {
             <div className={css.Positions}>
                 <img className={css.Img} src={imgPosterEmpty} alt={title}/>
             </div>
+
             <div className={css.MainInfo}>
                 <h1>{title}</h1>
                 <p>{release_date}</p>
@@ -79,7 +83,9 @@ const MovieInfo: FC = () => {
                                 </Link>)
                     }
                 </div>
+                <div className={css.Trailer}><Trailer/></div>
             </div>
+
         </div>
     );
 };
