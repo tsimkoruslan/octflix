@@ -10,7 +10,7 @@ interface IState {
     movies: IMovies,
     error: string,
     img: string,
-
+    toggle: boolean
 }
 
 const initialState: IState = {
@@ -18,7 +18,8 @@ const initialState: IState = {
     movies: null,
     error: null,
     img: null,
-    arrIdGenres: []
+    arrIdGenres: [],
+    toggle: false
 }
 
 const getMovies = createAsyncThunk<IMovies, number>(
@@ -60,8 +61,8 @@ const search = createAsyncThunk<IMovies, string>(
     }
 )
 
-const getMovieForGenre = createAsyncThunk<IMovies, string>(
-    'genresSlice/getMovieForGenre',
+const getMoviesByGenre = createAsyncThunk<IMovies, string >(
+    'genresSlice/getMoviesByGenre',
     async (id, {rejectWithValue}) => {
         try {
             const {data} = await moviesService.getGenreById(id.toString())
@@ -81,11 +82,14 @@ const slice = createSlice({
             pushIdGenres: (state, action) => {
                state.arrIdGenres = action.payload
         },
+            switcher: (state) => {
+                state.toggle = !state.toggle
+            }
 
         },
         extraReducers: builder => {
             builder
-                .addCase(getMovieForGenre.fulfilled, (state, action) => {
+                .addCase(getMoviesByGenre.fulfilled, (state, action) => {
                     state.movies = action.payload
                 })
                 .addCase(getMovies.fulfilled, (state, action) => {
@@ -117,7 +121,7 @@ const moviesActions = {
     search,
     getGenres,
     getMovies,
-    getMovieForGenre
+    getMoviesByGenre
 }
 
 export {

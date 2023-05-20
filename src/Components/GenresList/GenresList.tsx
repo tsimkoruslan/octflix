@@ -15,12 +15,11 @@ const GenresList = () => {
     }, [dispatch])
 
     useEffect(()=>{
-        dispatch(moviesActions.getMovieForGenre(arrIdGenres.toString()))
+        dispatch(moviesActions.getMoviesByGenre(arrIdGenres.toString()))
     },[dispatch, arrIdGenres])
 
     const reset = () => {
       dispatch(moviesActions.pushIdGenres([]));
-
     }
 
     return (

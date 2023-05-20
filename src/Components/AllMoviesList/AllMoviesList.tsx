@@ -1,15 +1,15 @@
 import React, {FC, useEffect} from 'react';
 import {useSearchParams} from "react-router-dom";
 
-import {useAppDispatch, useAppSelector} from "../../../hooks";
-import {moviesActions} from "../../../redux";
+import {useAppDispatch, useAppSelector} from "../../hooks";
+import {moviesActions} from "../../redux";
 import {MovieListCard} from "../MovieListCard";
-import {Paginator} from "../../Paginator";
-import css from './movies.list.module.css'
-import {SearchForm} from "../../SearchForm";
-import {GenresList} from "../../GenresList";
+import {Paginator} from "../Paginator";
+import css from './all.movies.list.module.css'
+import {SearchForm} from "../SearchForm";
+import {GenresList} from "../GenresList";
 
-const MoviesList: FC = () => {
+const AllMoviesList: FC = () => {
     const dispatch = useAppDispatch();
     const [query,] = useSearchParams()
     const {movies} = useAppSelector(state => state.moviesReducer);
@@ -37,5 +37,5 @@ const MoviesList: FC = () => {
 };
 
 export {
-    MoviesList
+    AllMoviesList
 };

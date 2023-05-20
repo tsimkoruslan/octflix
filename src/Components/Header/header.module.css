@@ -2,7 +2,15 @@
     display: flex;
     width: 100%;
     position: fixed;
-    background-color: #f0f0f0;
-    border-bottom: #7d7d7d solid 2px;
     align-items: center;
+}
+
+.Dark  {
+    color: #cdcdcd;
+    background-color: #27353f;
+    border-bottom: #c8c8c8 solid 2px;
+}
+.White {
+    background-color: #dbdee6;
+    border-bottom: #7d7d7d solid 2px;
 }

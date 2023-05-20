@@ -1,10 +1,10 @@
 import React, {FC} from 'react';
 import {Link} from "react-router-dom";
 
-import {IResults} from "../../../interfaces";
+import {IResults} from "../../interfaces";
 import css from './movi.list.card.module.css'
-import {posterURL} from "../../../constans";
-import empty from '../../../assets/images/empty/Programmer - Blank Poster.jpeg'
+import {posterURL} from "../../constans";
+import empty from '../../assets/images/empty/Programmer - Blank Poster.jpeg'
 
 interface IProps {
     movie: IResults

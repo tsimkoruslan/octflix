@@ -19,7 +19,7 @@ const GenreCard: FC<IProps> = ({genre}) => {
         const updatedGenres = [...arrIdGenres, id.toString()];
 
         dispatch(moviesActions.pushIdGenres(updatedGenres))
-        dispatch(moviesActions.getMovieForGenre(updatedGenres.toString()))
+        dispatch(moviesActions.getMoviesByGenre(updatedGenres.toString()))
 
     }
 

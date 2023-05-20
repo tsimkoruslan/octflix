@@ -1,6 +1,14 @@
 .Paginator {
-    position:fixed;
-    bottom : 50px;
+    position: fixed;
+    bottom: 50px;
     left: 50px;
-    background-color: white;
+}
+
+.Dark {
+    background-color: #27353f;
+    color: #cdcdcd;
+}
+
+.White {
+    background-color: #dbdee6;
 }
